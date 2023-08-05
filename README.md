@@ -254,15 +254,15 @@ nest g co moduleName --no-spec
 - [librerías Graphql + Nestjs](https://docs.nestjs.com/graphql/quick-start)
 
 #### Nestjs
-##### Videotutorials
-- [Videotutorial base](https://www.youtube.com/watch?v=W4_oH3anYHU)
-- [Videotutorial Typeorm](https://www.youtube.com/watch?v=JaTbzPcyiOE)
-- [Mastering Nest.js](https://www.youtube.com/playlist?list=PLkZU2rKh1mT-3VvYvGCdRVCCJ5lCtOKED)
-##### Topics
-- [Using async and promises](https://subscription.packtpub.com/book/programming/9781800204737/10/ch10lvl1sec89/asynchronous-handlers)
-- [Query parameters and parameters](https://stackoverflow.com/questions/54958244/how-to-use-query-parameters-in-nest-js)
-- [Using query parameters](https://dev.to/nandhakumar/nest-js-tutorial-3-query-route-params-3gi4)
-- [Autovalidation in NestJS](https://docs.nestjs.com/techniques/validation)
+* Videotutorials
+    - [Videotutorial base](https://www.youtube.com/watch?v=W4_oH3anYHU)
+    - [Videotutorial Typeorm](https://www.youtube.com/watch?v=JaTbzPcyiOE)
+    - [Mastering Nest.js](https://www.youtube.com/playlist?list=PLkZU2rKh1mT-3VvYvGCdRVCCJ5lCtOKED)
+* Topics
+    - [Using async and promises](https://subscription.packtpub.com/book/programming/9781800204737/10/ch10lvl1sec89/asynchronous-handlers)
+    - [Query parameters and parameters](https://stackoverflow.com/questions/54958244/how-to-use-query-parameters-in-nest-js)
+    - [Using query parameters](https://dev.to/nandhakumar/nest-js-tutorial-3-query-route-params-3gi4)
+    - [Autovalidation in NestJS](https://docs.nestjs.com/techniques/validation)
 
 #### Typeorm
 ##### Relations
