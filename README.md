@@ -81,7 +81,6 @@ Microservicio para el manejo de dispositivos cisco implementado con GraphQL, Nes
 ```git
 cd 'projectName'
 ```
-
 *   Instalamos la última versión LTS de [Nodejs(v18)](https://nodejs.org/en/download)
 * Instalamos NestJS de forma global
 
@@ -108,7 +107,7 @@ nest g mo moduleName --no-spec
 nest g s moduleName --no-spec
 ```
 
-* Crear un nuevo controlador sin test
+* Crear un nuevo resolver (controlador) sin test
 
 ```git
 nest g co moduleName --no-spec
@@ -250,46 +249,47 @@ nest g co moduleName --no-spec
 
  <br>
 
-#### Videotutorials
+#### Graphql
+##### Installation
+- [librerías Graphql + Nestjs](https://docs.nestjs.com/graphql/quick-start)
 
+#### Nestjs
+##### Videotutorials
 - [Videotutorial base](https://www.youtube.com/watch?v=W4_oH3anYHU)
 - [Videotutorial Typeorm](https://www.youtube.com/watch?v=JaTbzPcyiOE)
 - [Mastering Nest.js](https://www.youtube.com/playlist?list=PLkZU2rKh1mT-3VvYvGCdRVCCJ5lCtOKED)
-
-#### Api example code
-
-- [Api completa MVC (CHECK)](https://github.com/amitavdevzone/nest-js-quiz-manager/tree/master)
-- [Api example tutorial](https://stackabuse.com/guide-to-nestjs-building-a-rest-api-with-nest-and-node/)
-- [Nestjs Rest example code](https://github.com/hantsy/nestjs-rest-sample/blob/master/docs/guide.md)
-- [OFICIAL CRUD NESTJS](https://docs.nestjs.com/recipes/crud-generator)
-
-#### Api Methods
-
-- [findOne, find, filter,etc](https://desarrolloweb.com/articulos/metodo-find-repositorios-typeorm)
-- [Check pagination,etc](https://stackoverflow.com/questions/53922503/how-to-implement-pagination-in-nestjs-with-typeorm)
-- [Rest Methods](https://docs.nestjs.com/techniques/database)
-
-#### Topics NestJS
-
+##### Topics
 - [Using async and promises](https://subscription.packtpub.com/book/programming/9781800204737/10/ch10lvl1sec89/asynchronous-handlers)
 - [Query parameters and parameters](https://stackoverflow.com/questions/54958244/how-to-use-query-parameters-in-nest-js)
 - [Using query parameters](https://dev.to/nandhakumar/nest-js-tutorial-3-query-route-params-3gi4)
 - [Autovalidation in NestJS](https://docs.nestjs.com/techniques/validation)
 
-#### OpenApi and Swagger
-
-- [Code settings](https://docs.nestjs.com/openapi/introduction)
-- [Code example](https://github.com/nestjs/nest/blob/master/sample/11-swagger/src/cats/entities/cat.entity.ts)
-
-
-#### Typeorm Relations
+#### Typeorm
+##### Relations
 - [Typeorm Relationships with cascade](https://stackoverflow.com/questions/55098023/typeorm-cascade-option-cascade-ondelete-onupdate)
 - [Using Foreign keys tutorial](https://leoromanovsky.medium.com/a-blog-without-an-author-typeorm-creates-confusion-with-required-columns-and-optional-foreign-keys-1a3f932d4e67)
 - [Using Foreign keys stackoverflow](https://stackoverflow.com/questions/68556933/typeorm-insert-foreign-key-by-string)
 - [Using Providers with Nestjs](https://docs.nestjs.com/recipes/sql-typeorm)
+##### Methods
+- [findOne, find, filter,etc](https://desarrolloweb.com/articulos/metodo-find-repositorios-typeorm)
+- [Check pagination,etc](https://stackoverflow.com/questions/53922503/how-to-implement-pagination-in-nestjs-with-typeorm)
+- [Rest Methods](https://docs.nestjs.com/techniques/database)
+
+
+#### Api example code
+- [Api completa MVC (CHECK)](https://github.com/amitavdevzone/nest-js-quiz-manager/tree/master)
+- [Api example tutorial](https://stackabuse.com/guide-to-nestjs-building-a-rest-api-with-nest-and-node/)
+- [Nestjs Rest example code](https://github.com/hantsy/nestjs-rest-sample/blob/master/docs/guide.md)
+- [OFICIAL CRUD NESTJS](https://docs.nestjs.com/recipes/crud-generator)
+
+
+#### OpenApi and Swagger
+- [Code settings](https://docs.nestjs.com/openapi/introduction)
+- [Code example](https://github.com/nestjs/nest/blob/master/sample/11-swagger/src/cats/entities/cat.entity.ts)
+
+
 
 #### Librerías
-
 *   [Validación de campos](https://www.npmjs.com/package/node-input-validator)
 *   [Validación de propiedades de clases](https://www.npmjs.com/package/class-validator)
 
