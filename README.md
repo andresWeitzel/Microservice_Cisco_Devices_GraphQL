@@ -250,8 +250,10 @@ nest g co moduleName --no-spec
  <br>
 
 #### Graphql
-##### Installation
-- [librerías Graphql + Nestjs](https://docs.nestjs.com/graphql/quick-start)
+* Tutorials
+    - [Tutorial Base](https://www.youtube.com/watch?v=ms0WcT2MJg4&t=11s)
+* Installation
+    - [Librerías Graphql + Nestjs](https://docs.nestjs.com/graphql/quick-start)
 
 #### Nestjs
 * Videotutorials
@@ -265,15 +267,15 @@ nest g co moduleName --no-spec
     - [Autovalidation in NestJS](https://docs.nestjs.com/techniques/validation)
 
 #### Typeorm
-##### Relations
-- [Typeorm Relationships with cascade](https://stackoverflow.com/questions/55098023/typeorm-cascade-option-cascade-ondelete-onupdate)
-- [Using Foreign keys tutorial](https://leoromanovsky.medium.com/a-blog-without-an-author-typeorm-creates-confusion-with-required-columns-and-optional-foreign-keys-1a3f932d4e67)
-- [Using Foreign keys stackoverflow](https://stackoverflow.com/questions/68556933/typeorm-insert-foreign-key-by-string)
-- [Using Providers with Nestjs](https://docs.nestjs.com/recipes/sql-typeorm)
-##### Methods
-- [findOne, find, filter,etc](https://desarrolloweb.com/articulos/metodo-find-repositorios-typeorm)
-- [Check pagination,etc](https://stackoverflow.com/questions/53922503/how-to-implement-pagination-in-nestjs-with-typeorm)
-- [Rest Methods](https://docs.nestjs.com/techniques/database)
+* Relations
+    - [Typeorm Relationships with cascade](https://stackoverflow.com/questions/55098023/typeorm-cascade-option-cascade-ondelete-onupdate)
+    - [Using Foreign keys tutorial](https://leoromanovsky.medium.com/a-blog-without-an-author-typeorm-creates-confusion-with-required-columns-and-optional-foreign-keys-1a3f932d4e67)
+    - [Using Foreign keys stackoverflow](https://stackoverflow.com/questions/68556933/typeorm-insert-foreign-key-by-string)
+    - [Using Providers with Nestjs](https://docs.nestjs.com/recipes/sql-typeorm)
+* Methods
+    - [findOne, find, filter,etc](https://desarrolloweb.com/articulos/metodo-find-repositorios-typeorm)
+    - [Check pagination,etc](https://stackoverflow.com/questions/53922503/how-to-implement-pagination-in-nestjs-with-typeorm)
+    - [Rest Methods](https://docs.nestjs.com/techniques/database)
 
 
 #### Api example code
