@@ -80,7 +80,7 @@ export class RatePlans extends BaseEntity {
    */
   @Field()
   @Column({
-    name: 'version_id',
+    name: 'version_plan',
     nullable: true,
     default: '1.0',
   })
