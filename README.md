@@ -249,11 +249,13 @@ nest g co moduleName --no-spec
 
  <br>
 
-#### Graphql
+
+#### @nestjs/graphql
 * Tutorials
     - [Tutorial Base](https://www.youtube.com/watch?v=ms0WcT2MJg4&t=11s)
 * Installation/tutorial
     - [Librerías y tutorial Graphql + Nestjs](https://docs.nestjs.com/graphql/quick-start)
+    - [Tipos de datos](https://graphql.org/learn/schema/)    
 
 #### Nestjs
 * Videotutorials
@@ -279,6 +281,7 @@ nest g co moduleName --no-spec
 
 
 #### Api example code
+- [Ap rest graphql+typeorm+nestjs](https://blog.logrocket.com/how-to-build-a-graphql-api-with-nestjs/)
 - [Api completa MVC (CHECK)](https://github.com/amitavdevzone/nest-js-quiz-manager/tree/master)
 - [Api example tutorial](https://stackabuse.com/guide-to-nestjs-building-a-rest-api-with-nest-and-node/)
 - [Nestjs Rest example code](https://github.com/hantsy/nestjs-rest-sample/blob/master/docs/guide.md)

@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 //External
-import { ObjectType } from '@nestjs/graphql';
+import { Field, ObjectType } from '@nestjs/graphql';
 import { ApiProperty, ApiTags } from '@nestjs/swagger';
 import { IsNotEmpty } from 'class-validator';
 import {
@@ -21,6 +21,7 @@ export class RatePlans extends BaseEntity {
   /**
    * @description Identifier for a rate plan
    */
+  @Field()
   @PrimaryGeneratedColumn('increment', { type: 'int' })
   @IsNotEmpty()
   @ApiProperty({
@@ -37,10 +38,10 @@ export class RatePlans extends BaseEntity {
   /**
    * @description Descriptive rate plan name. Names are unique within an operator.
    */
+  @Field()
   @Column({
     name: 'name',
     length: 200,
-    type: 'string',
     nullable: false,
   })
   @IsNotEmpty()
@@ -58,6 +59,7 @@ export class RatePlans extends BaseEntity {
   /**
    * @description Uniquely identifies a particular version of a rate plan in relation to every other rate plan version in the system, including different versions of the same rate plan and different versions of other rate plans. Because a rate plan may have multiple active versions at any one time, the versionId, not the id, is the only truly unique rate plan identifier..
    */
+  @Field()
   @Column({
     name: 'version_id',
     type: 'int',
@@ -76,9 +78,9 @@ export class RatePlans extends BaseEntity {
   /**
    * @description Uniquely identifies a particular version of a rate plan in relation to every other rate plan version in the system, including different versions of the same rate plan and different versions of other rate plans. Because a rate plan may have multiple active versions at any one time, the versionId, not the id, is the only truly unique rate plan identifier..
    */
+  @Field()
   @Column({
     name: 'version_id',
-    type: 'string',
     nullable: true,
     default: '1.0',
   })
@@ -96,6 +98,7 @@ export class RatePlans extends BaseEntity {
   /**
    * @description enum propertie. This enum returns only published rate plans with the Published status value. Published rate plans are approved and available for use by devices.
    */
+  @Field()
   @Column({
     name: 'status',
     type: 'enum',
@@ -115,9 +118,9 @@ export class RatePlans extends BaseEntity {
   /**
    * @description The type refers to the payment method (monthly vs. prepaid) and included usage type (individual vs. pooled vs. event).
    */
+  @Field()
   @Column({
     name: 'type_plan',
-    type: 'string',
     nullable: false,
   })
   @IsNotEmpty()
@@ -135,6 +138,7 @@ export class RatePlans extends BaseEntity {
   /**
    * @description	For monthly rate plans, this charge is the monthly subscription fee for each of the subscribers in the tier. For prepaid rate plans, this is a one-time charge per subscriber that covers the entire term of the plan.
    */
+  @Field()
   @Column({
     name: 'subscription_charge',
     type: 'decimal',
@@ -155,6 +159,7 @@ export class RatePlans extends BaseEntity {
   /**
    * @description		The number of tiers specifies how many subscription tiers the rate plan has. Each tier can have different subscription fees, account charges (for certain plan types), usage allotments, and overage charges..
    */
+  @Field()
   @Column({
     name: 'number_of_tiers',
     type: 'int',
@@ -168,11 +173,12 @@ export class RatePlans extends BaseEntity {
     type: 'int',
     example: 1,
   })
-  number_of_tiers: number;
+  numberOfTiers: number;
 
   /**
    * @description	creation date for a rate-plan record
    */
+  @Field()
   @CreateDateColumn({
     name: 'creation_date',
     type: 'datetime',
@@ -182,25 +188,26 @@ export class RatePlans extends BaseEntity {
   @ApiProperty({
     name: 'creationDate',
     description: 'creation date for a rate-plan record',
-    type: 'string',
+    type: 'datetime',
     minLength: 4,
     maxLength: 50,
     example: '2023-02-17T00:47:58.000Z',
   })
-  creationDate: Date;
+  creationDate?: Date;
 
   /**
    * @description	update date for a rate-plan record
    */
+  @Field()
   @UpdateDateColumn({ name: 'update_date', type: 'datetime', nullable: false })
   @IsNotEmpty()
   @ApiProperty({
     name: 'updateDate',
     description: 'update date for a product',
-    type: 'string',
+    type: 'datetime',
     minLength: 4,
     maxLength: 50,
     example: '2023-02-17T00:47:58.000Z',
   })
-  updateDate: Date;
+  updateDate?: Date;
 }
