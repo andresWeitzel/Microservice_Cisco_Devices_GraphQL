@@ -117,9 +117,11 @@ nest g co moduleName --no-spec
 
 ```git
 nest g resource resourceName --no-spec
-
-seleccionamos GraphQL (code first)
-seleccionamos yes para CRUD entry point
+```
+```git
+- Seleccionamos los siguientes valores
+- ? What transport layer do you use? GraphQL (code first)
+- ? Would you like to generate CRUD entry points? Yes
 ```
 
 * Instalamos el plugin para [dotenv (variables de entorno)](https://www.npmjs.com/package/dotenv)
@@ -175,7 +177,16 @@ nest g s moduleName --no-spec
 ```git
 nest g co moduleName --no-spec
 ```
+* Podemos automatizar los archivos anteriores con graphql usando un resource( Esto creara entities,services,module, resolvers)
 
+```git
+nest g resource resourceName --no-spec
+```
+```git
+- Seleccionamos los siguientes valores
+- ? What transport layer do you use? GraphQL (code first)
+- ? Would you like to generate CRUD entry points? Yes
+```
 
 <br>
 
