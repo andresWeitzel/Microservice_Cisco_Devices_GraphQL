@@ -14,7 +14,7 @@ import {
 //Enums
 import { Status } from '../enums/status';
 
-@ObjectType()
+@ObjectType('RatePlans')
 @Entity({ name: 'rate_plans' })
 @ApiTags('RatePlans')
 export class RatePlans extends BaseEntity {
@@ -56,6 +56,27 @@ export class RatePlans extends BaseEntity {
   })
   name: string;
 
+    /**
+   * @description Description for a plan.
+   */
+    @Field()
+    @Column({
+      name: 'description',
+      length: 500,
+      nullable: false,
+    })
+    @IsNotEmpty()
+    @ApiProperty({
+      name: 'description',
+      description:
+        'Description for a plan.',
+      type: 'string',
+      minLength: 4,
+      maxLength: 500,
+      example: 'plan for individual monthly subscriptions',
+    })
+    description: string;
+
   /**
    * @description Uniquely identifies a particular version of a rate plan in relation to every other rate plan version in the system, including different versions of the same rate plan and different versions of other rate plans. Because a rate plan may have multiple active versions at any one time, the versionId, not the id, is the only truly unique rate plan identifier..
    */
@@ -81,6 +102,7 @@ export class RatePlans extends BaseEntity {
   @Field()
   @Column({
     name: 'version_plan',
+    length: 20,
     nullable: true,
     default: '1.0',
   })
@@ -121,6 +143,7 @@ export class RatePlans extends BaseEntity {
   @Field()
   @Column({
     name: 'type_plan',
+    length: 200,
     nullable: false,
   })
   @IsNotEmpty()

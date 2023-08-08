@@ -1,4 +1,6 @@
+//External
 import { NestFactory } from '@nestjs/core';
+//Module
 import { AppModule } from './app.module';
 
 async function bootstrap() {

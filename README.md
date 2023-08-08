@@ -112,6 +112,16 @@ nest g s moduleName --no-spec
 ```git
 nest g co moduleName --no-spec
 ```
+
+* Podemos automatizar los archivos anteriores con graphql usando un resource( Esto creara entities,services,module, resolvers)
+
+```git
+nest g resource resourceName --no-spec
+
+seleccionamos GraphQL (code first)
+seleccionamos yes para CRUD entry point
+```
+
 * Instalamos el plugin para [dotenv (variables de entorno)](https://www.npmjs.com/package/dotenv)
 ```git
 npm i dotenv
@@ -255,7 +265,10 @@ nest g co moduleName --no-spec
     - [Tutorial Base](https://www.youtube.com/watch?v=ms0WcT2MJg4&t=11s)
 * Installation/tutorial
     - [Librerías y tutorial Graphql + Nestjs](https://docs.nestjs.com/graphql/quick-start)
-    - [Tipos de datos](https://graphql.org/learn/schema/)    
+    - [Tipos de datos](https://graphql.org/learn/schema/)
+    - [Paginados y filtros](https://github.com/Adrinalin4ik/Nestjs-Graphql-Tools)
+    - [Argumentos/parametros/query params](https://the-guild.dev/graphql/yoga-server/tutorial/advanced/03-advanced-sorting)
+    - [Argumentos](https://ru-nestjs-docs.netlify.app/graphql/resolvers-map)
 
 #### Nestjs
 * Videotutorials
