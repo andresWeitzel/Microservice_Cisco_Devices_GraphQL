@@ -259,6 +259,9 @@ nest g co moduleName --no-spec
 
  <br>
 
+#### GraphQL Api
+* Tutorials
+ -[Api rest example](https://www.youtube.com/watch?v=geYvdbpo3cA)
 
 #### @nestjs/graphql
 * Tutorials

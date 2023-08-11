@@ -61,4 +61,5 @@ export class RatePlansService {
       console.log(`Error in getAllRatePlans service. Caused by ${error}`);
     }
   }
+  
 }

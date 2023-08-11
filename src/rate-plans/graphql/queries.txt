@@ -1,0 +1,15 @@
+query {
+    getAllRatePlans(limit: 10, orderBy: "id", orderAt: "asc") {
+      id
+      name
+      description
+      versionId
+      versionPlan
+      status
+      typePlan
+      subscriptionCharge
+      numberOfTiers
+      creationDate
+      updateDate
+    }
+  }
