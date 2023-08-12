@@ -56,26 +56,25 @@ export class RatePlans extends BaseEntity {
   })
   name: string;
 
-    /**
+  /**
    * @description Description for a plan.
    */
-    @Field()
-    @Column({
-      name: 'description',
-      length: 500,
-      nullable: false,
-    })
-    @IsNotEmpty()
-    @ApiProperty({
-      name: 'description',
-      description:
-        'Description for a plan.',
-      type: 'string',
-      minLength: 4,
-      maxLength: 500,
-      example: 'plan for individual monthly subscriptions',
-    })
-    description: string;
+  @Field()
+  @Column({
+    name: 'description',
+    length: 500,
+    nullable: false,
+  })
+  @IsNotEmpty()
+  @ApiProperty({
+    name: 'description',
+    description: 'Description for a plan.',
+    type: 'string',
+    minLength: 4,
+    maxLength: 500,
+    example: 'plan for individual monthly subscriptions',
+  })
+  description: string;
 
   /**
    * @description Uniquely identifies a particular version of a rate plan in relation to every other rate plan version in the system, including different versions of the same rate plan and different versions of other rate plans. Because a rate plan may have multiple active versions at any one time, the versionId, not the id, is the only truly unique rate plan identifier..
@@ -88,7 +87,7 @@ export class RatePlans extends BaseEntity {
   })
   @IsNotEmpty()
   @ApiProperty({
-    name: 'name',
+    name: 'versionId',
     description:
       'Uniquely identifies a particular version of a rate plan in relation to every other rate plan version in the system, including different versions of the same rate plan and different versions of other rate plans. Because a rate plan may have multiple active versions at any one time, the versionId, not the id, is the only truly unique rate plan identifier.',
     type: 'int',
@@ -107,7 +106,7 @@ export class RatePlans extends BaseEntity {
     default: '1.0',
   })
   @ApiProperty({
-    name: 'name',
+    name: 'versionPlan',
     description:
       'Specifies the version of the current rate plan. Two different versions of the same rate plan may coexist if there are billable devices assigned to each version (for prepaid plans only)',
     type: 'string',
@@ -148,7 +147,7 @@ export class RatePlans extends BaseEntity {
   })
   @IsNotEmpty()
   @ApiProperty({
-    name: 'type_plan',
+    name: 'typePlan',
     description:
       'The type refers to the payment method (monthly vs. prepaid) and included usage type (individual vs. pooled vs. event).',
     type: 'string',
@@ -171,7 +170,7 @@ export class RatePlans extends BaseEntity {
     scale: 3,
   })
   @ApiProperty({
-    name: 'subscription_charge',
+    name: 'subscriptionCharge',
     description:
       'For monthly rate plans, this charge is the monthly subscription fee for each of the subscribers in the tier. For prepaid rate plans, this is a one-time charge per subscriber that covers the entire term of the plan.',
     type: 'decimal',
@@ -190,7 +189,7 @@ export class RatePlans extends BaseEntity {
     default: 1,
   })
   @ApiProperty({
-    name: 'number_of_tiers',
+    name: 'numberOfTiers',
     description:
       '	The number of tiers specifies how many subscription tiers the rate plan has. Each tier can have different subscription fees, account charges (for certain plan types), usage allotments, and overage charges.',
     type: 'int',

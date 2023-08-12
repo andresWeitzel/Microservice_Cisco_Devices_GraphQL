@@ -7,7 +7,7 @@ import { RatePlansResolver } from './rate-plans.resolver';
 //Modules
 import { DatabaseModule } from 'src/database/database.module';
 //Providers
-import { RatePlansProviders } from './models/rate-plans.providers';
+import { RatePlansProviders } from './rate-plans.providers';
 
 @Module({
   imports: [DatabaseModule],

@@ -16,6 +16,32 @@ export class RatePlansService {
     @Inject('RATE_PLANS_REPOSITORY')
     private ratePlansRepository: Repository<RatePlans>,
   ) {}
+
+
+
+  //   /**
+  //  * @description Service to create and save a rate plan
+  //  * @param {ProductDTO} product ProductDTO type
+  //  * @returns an object with the product
+  //  */
+  //   async createProduct(product: ProductDTO): Promise<Product> {
+  //     try {
+  //         //-- start with validation object  ---
+  //         const validateObject = await validateProductObject(product);
+  //         if (validateObject.length) {
+  //           return validateObject;
+  //         }
+  //         //-- end with validation object  ---
+  //       const newProduct = this.productRepository.create(product);
+  
+  //       return await this.productRepository.save(newProduct);
+  //     } catch (error) {
+  //       console.log(`Error in createProduct service. Caused by ${error}`);
+  //     }
+  //   }
+
+
+
   /**
    * @description Service to get a paginated listing of all rate plans
    * @param {number} limit number type

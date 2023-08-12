@@ -2,7 +2,7 @@
 //external
 import { DataSource } from 'typeorm';
 //models
-import { RatePlans } from './rate-plans.entity';
+import { RatePlans } from './models/rate-plans.entity';
 
 export const RatePlansProviders = [
   {
