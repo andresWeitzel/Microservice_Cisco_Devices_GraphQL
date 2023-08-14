@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 //External
 import { ApiProperty, ApiTags } from '@nestjs/swagger';
+import { Field, InputType } from '@nestjs/graphql';
 import {
   IsNotEmpty,
   IsNumber,
@@ -25,16 +26,18 @@ const MIN_VALUE_FOR_VERSION_PLAN = 1;
 const MAX_VALUE_FOR_VERSION_PLAN = 20;
 const MIN_VALUE_FOR_TYPE_PLAN = 2;
 const MAX_VALUE_FOR_TYPE_PLAN = 200;
-const MIN_VALUE_FOR_SUSCRIPTION_CHARGE = 2.99;
+const MIN_VALUE_FOR_SUSCRIPTION_CHARGE = 0.99;
 const MAX_VALUE_FOR_SUSCRIPTION_CHARGE = 100.0;
 const MIN_VALUE_FOR_NUMBER_OF_TIERS = 1;
 const MAX_VALUE_FOR_NUMBER_OF_TIERS = 10;
 
+@InputType()
 @ApiTags('RatePlansDTO')
 export class RatePlansDTO {
   /**
    * @description name of the rate plan
    */
+  @Field()
   @IsNotEmpty({ message: 'The name cannot be empty' })
   @IsString({ message: 'The name must be of type string' })
   @Length(MIN_VALUE_FOR_NAME, MAX_VALUE_FOR_NAME, {
@@ -54,6 +57,7 @@ export class RatePlansDTO {
   /**
    * @description Description for a plan.
    */
+  @Field()
   @IsNotEmpty({ message: 'The description cannot be empty' })
   @IsString({ message: 'The description must be of type string' })
   @Length(MIN_VALUE_FOR_DESCRIPTION, MAX_VALUE_FOR_DESCRIPTION, {
@@ -72,6 +76,7 @@ export class RatePlansDTO {
   /**
    * @description Uniquely identifies a particular version of a rate plan in relation to every other rate plan version in the system, including different versions of the same rate plan and different versions of other rate plans. Because a rate plan may have multiple active versions at any one time, the versionId, not the id, is the only truly unique rate plan identifier..
    */
+  @Field()
   @IsNotEmpty({ message: 'The version id cannot be empty' })
   @IsInt({ message: 'The version id must be of type integer' })
   @Min(MIN_VALUE_FOR_VERSION_ID, {
@@ -92,6 +97,7 @@ export class RatePlansDTO {
   /**
    * @description Uniquely identifies a particular version of a rate plan in relation to every other rate plan version in the system, including different versions of the same rate plan and different versions of other rate plans. Because a rate plan may have multiple active versions at any one time, the versionId, not the id, is the only truly unique rate plan identifier..
    */
+  @Field()
   @IsNotEmpty({ message: 'The version plan cannot be empty' })
   @IsString({ message: 'The version plan must be of type string' })
   @Length(MIN_VALUE_FOR_VERSION_PLAN, MAX_VALUE_FOR_VERSION_PLAN, {
@@ -111,6 +117,7 @@ export class RatePlansDTO {
   /**
    * @description enum propertie. This enum returns only published rate plans with the Published status value. Published rate plans are approved and available for use by devices.
    */
+  @Field()
   @IsEnum(Status)
   @IsNotEmpty({ message: 'The status of a device cannot be empty' })
   @ApiProperty({
@@ -124,6 +131,7 @@ export class RatePlansDTO {
   /**
    * @description The type refers to the payment method (monthly vs. prepaid) and included usage type (individual vs. pooled vs. event).
    */
+  @Field()
   @IsNotEmpty({ message: 'The type plan cannot be empty' })
   @IsString({ message: 'The type plan must be of type string' })
   @Length(MIN_VALUE_FOR_TYPE_PLAN, MAX_VALUE_FOR_TYPE_PLAN, {
@@ -143,6 +151,7 @@ export class RatePlansDTO {
   /**
    * @description	For monthly rate plans, this charge is the monthly subscription fee for each of the subscribers in the tier. For prepaid rate plans, this is a one-time charge per subscriber that covers the entire term of the plan.
    */
+  @Field()
   @IsNotEmpty({ message: 'The suscription charge of device cannot be empty' })
   @IsNumber(
     {
@@ -173,6 +182,7 @@ export class RatePlansDTO {
   /**
    * @description		The number of tiers specifies how many subscription tiers the rate plan has. Each tier can have different subscription fees, account charges (for certain plan types), usage allotments, and overage charges..
    */
+  @Field()
   @IsNotEmpty({ message: 'The number of tiers cannot be empty' })
   @IsInt({ message: 'The number of tiers must be of type integer' })
   @Min(MIN_VALUE_FOR_NUMBER_OF_TIERS, {

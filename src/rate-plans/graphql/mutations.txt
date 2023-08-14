@@ -1,0 +1,56 @@
+# Add a rate plan
+mutation {
+ createRatePlan(
+  ratePlanObj:{
+      name: "IOPA-278",
+      description: "plan for groupal annual subscriptions, until ten peoples",
+      versionId: 7822111,
+      versionPlan: "2.4",
+      status: "Published",
+      typePlan: "Annually - Groupal Subscribers",
+      subscriptionCharge: 1.1,
+      numberOfTiers: 3,
+}
+  ) {
+    id
+    name
+    description
+    versionId
+    versionPlan
+    status
+    typePlan
+    subscriptionCharge
+    numberOfTiers
+    creationDate
+    updateDate
+  }
+}
+
+# Update a rate plan
+mutation {
+ updateRatePlan(
+  id:8,
+  ratePlanObj:{
+      name: "IOPA-279",
+      description: "plan for groupal annual subscriptions, until ten peoples",
+      versionId: 7822114,
+      versionPlan: "2.5",
+      status: "Published",
+      typePlan: "Annually - Groupal Subscribers",
+      subscriptionCharge: 1.2,
+      numberOfTiers: 3,
+}
+  ) {
+    id
+    name
+    description
+    versionId
+    versionPlan
+    status
+    typePlan
+    subscriptionCharge
+    numberOfTiers
+    creationDate
+    updateDate
+  }
+}

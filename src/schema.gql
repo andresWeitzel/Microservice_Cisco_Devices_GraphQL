@@ -22,6 +22,22 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 scalar DateTime
 
 type Query {
-  getAllRatePlans(limit: Int!, orderBy: String!, orderAt: String!): [RatePlans!]!
+  getAllRatePlans(pageNro: Int!, pageSize: Int!, orderBy: String!, orderAt: String!): [RatePlans!]!
   getByIdRatePlans(inputId: Int!): RatePlans!
+}
+
+type Mutation {
+  createRatePlan(ratePlanObj: RatePlansDTO!): RatePlans!
+  updateRatePlan(id: Float!, ratePlanObj: RatePlansDTO!): RatePlans!
+}
+
+input RatePlansDTO {
+  name: String!
+  description: String!
+  versionId: Float!
+  versionPlan: String!
+  status: String!
+  typePlan: String!
+  subscriptionCharge: Float!
+  numberOfTiers: Float!
 }

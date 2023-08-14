@@ -1,15 +1,44 @@
+
+# Get All paginated list
 query {
-    getAllRatePlans(limit: 10, orderBy: "id", orderAt: "asc") {
-      id
-      name
-      description
-      versionId
-      versionPlan
-      status
-      typePlan
-      subscriptionCharge
-      numberOfTiers
-      creationDate
-      updateDate
-    }
+  getAllRatePlans(
+    pageNro: 1, 
+    pageSize: 10, 
+    orderBy: "id", 
+    orderAt: "asc"
+  ) {
+    id
+    name
+    description
+    versionId
+    versionPlan
+    status
+    typePlan
+    subscriptionCharge
+    numberOfTiers
+    creationDate
+    updateDate
   }
+}
+
+# Get by id
+query {
+  getByIdRatePlans(
+    inputId: 1,
+  ) {
+    id
+    name
+    description
+    versionId
+    versionPlan
+    status
+    typePlan
+    subscriptionCharge
+    numberOfTiers
+    creationDate
+    updateDate
+  }
+}
+
+
+
