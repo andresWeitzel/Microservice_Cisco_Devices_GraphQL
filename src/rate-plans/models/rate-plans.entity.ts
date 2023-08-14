@@ -2,7 +2,6 @@
 //External
 import { Field, ObjectType } from '@nestjs/graphql';
 import { ApiProperty, ApiTags } from '@nestjs/swagger';
-import { IsNotEmpty } from 'class-validator';
 import {
   BaseEntity,
   Column,
@@ -23,7 +22,6 @@ export class RatePlans extends BaseEntity {
    */
   @Field()
   @PrimaryGeneratedColumn('increment', { type: 'int' })
-  @IsNotEmpty()
   @ApiProperty({
     name: 'id',
     description: 'Identifier for a rate plan',
@@ -44,7 +42,6 @@ export class RatePlans extends BaseEntity {
     length: 200,
     nullable: false,
   })
-  @IsNotEmpty()
   @ApiProperty({
     name: 'name',
     description:
@@ -65,7 +62,6 @@ export class RatePlans extends BaseEntity {
     length: 500,
     nullable: false,
   })
-  @IsNotEmpty()
   @ApiProperty({
     name: 'description',
     description: 'Description for a plan.',
@@ -85,7 +81,6 @@ export class RatePlans extends BaseEntity {
     type: 'int',
     nullable: false,
   })
-  @IsNotEmpty()
   @ApiProperty({
     name: 'versionId',
     description:
@@ -127,7 +122,6 @@ export class RatePlans extends BaseEntity {
     default: Status.ACTIVE,
     nullable: false,
   })
-  @IsNotEmpty()
   @ApiProperty({
     name: 'status',
     description: 'status for a product',
@@ -145,7 +139,6 @@ export class RatePlans extends BaseEntity {
     length: 200,
     nullable: false,
   })
-  @IsNotEmpty()
   @ApiProperty({
     name: 'typePlan',
     description:
@@ -206,7 +199,6 @@ export class RatePlans extends BaseEntity {
     type: 'datetime',
     nullable: false,
   })
-  @IsNotEmpty()
   @ApiProperty({
     name: 'creationDate',
     description: 'creation date for a rate-plan record',
@@ -215,14 +207,13 @@ export class RatePlans extends BaseEntity {
     maxLength: 50,
     example: '2023-02-17T00:47:58.000Z',
   })
-  creationDate?: Date;
+  creationDate: Date;
 
   /**
    * @description	update date for a rate-plan record
    */
   @Field()
   @UpdateDateColumn({ name: 'update_date', type: 'datetime', nullable: false })
-  @IsNotEmpty()
   @ApiProperty({
     name: 'updateDate',
     description: 'update date for a product',
@@ -231,5 +222,5 @@ export class RatePlans extends BaseEntity {
     maxLength: 50,
     example: '2023-02-17T00:47:58.000Z',
   })
-  updateDate?: Date;
+  updateDate: Date;
 }
