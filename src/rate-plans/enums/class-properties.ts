@@ -1,0 +1,29 @@
+/* eslint-disable prettier/prettier */
+/**
+ * @description enum class. This enum returns the class property name, values, or length for validations
+ */
+export enum RatePlansProperties{
+    NAME_VALUE_FOR_NAME = 'name',
+    NAME_VALUE_FOR_DESCRIPTION = 'description',
+    NAME_VALUE_FOR_VERSION_ID = 'versionId',
+    NAME_VALUE_FOR_VERSION_PLAN = 'versionPlan',
+    NAME_VALUE_FOR_STATUS = 'status',
+    NAME_VALUE_FOR_TYPE_PLAN = 'typePlan',
+    NAME_VALUE_FOR_SUSCRIPTION_CHARGE = 'subscriptionCharge',
+    NAME_VALUE_FOR_NUMBER_OF_TIERS = 'numberOfTiers',
+    DECIMAL_SCALE_VALUE = 3,
+    MIN_LENGTH_VALUE_FOR_NAME = 4,
+    MAX_LENGTH_VALUE_FOR_NAME = 200,
+    MIN_LENGTH_VALUE_FOR_DESCRIPTION = 4,
+    MAX_LENGTH_VALUE_FOR_DESCRIPTION = 500,
+    MIN_VALUE_FOR_VERSION_ID = 1,
+    MAX_VALUE_FOR_VERSION_ID = 999999999,
+    MIN_LENGTH_VALUE_FOR_VERSION_PLAN = 1,
+    MAX_LENGTH_VALUE_FOR_VERSION_PLAN = 20,
+    MIN_LENGTH_VALUE_FOR_TYPE_PLAN = 2,
+    MAX_LENGTH_VALUE_FOR_TYPE_PLAN = 200,
+    MIN_VALUE_FOR_SUSCRIPTION_CHARGE = 0.99,
+    MAX_VALUE_FOR_SUSCRIPTION_CHARGE = 100.0,
+    MIN_VALUE_FOR_NUMBER_OF_TIERS = 1,
+    MAX_VALUE_FOR_NUMBER_OF_TIERS = 10,
+}

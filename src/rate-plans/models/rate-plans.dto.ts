@@ -14,22 +14,31 @@ import {
 } from 'class-validator';
 //Enums
 import { Status } from '../enums/status';
+import { RatePlansProperties } from '../enums/class-properties';
 //Const-vars
-const DECIMAL_SCALE_VALUE = 3;
-const MIN_VALUE_FOR_NAME = 4;
-const MAX_VALUE_FOR_NAME = 200;
-const MIN_VALUE_FOR_DESCRIPTION = 4;
-const MAX_VALUE_FOR_DESCRIPTION = 500;
-const MIN_VALUE_FOR_VERSION_ID = 1;
-const MAX_VALUE_FOR_VERSION_ID = 999999999;
-const MIN_VALUE_FOR_VERSION_PLAN = 1;
-const MAX_VALUE_FOR_VERSION_PLAN = 20;
-const MIN_VALUE_FOR_TYPE_PLAN = 2;
-const MAX_VALUE_FOR_TYPE_PLAN = 200;
-const MIN_VALUE_FOR_SUSCRIPTION_CHARGE = 0.99;
-const MAX_VALUE_FOR_SUSCRIPTION_CHARGE = 100.0;
-const MIN_VALUE_FOR_NUMBER_OF_TIERS = 1;
-const MAX_VALUE_FOR_NUMBER_OF_TIERS = 10;
+const NAME_VALUE_FOR_NAME = RatePlansProperties.NAME_VALUE_FOR_NAME;
+const NAME_VALUE_FOR_DESCRIPTION = RatePlansProperties.NAME_VALUE_FOR_DESCRIPTION;
+const NAME_VALUE_FOR_VERSION_ID = RatePlansProperties.NAME_VALUE_FOR_VERSION_ID;
+const NAME_VALUE_FOR_VERSION_PLAN = RatePlansProperties.NAME_VALUE_FOR_VERSION_PLAN;
+const NAME_VALUE_FOR_STATUS = RatePlansProperties.NAME_VALUE_FOR_STATUS;
+const NAME_VALUE_FOR_TYPE_PLAN = RatePlansProperties.NAME_VALUE_FOR_TYPE_PLAN;
+const NAME_VALUE_FOR_SUSCRIPTION_CHARGE = RatePlansProperties.NAME_VALUE_FOR_SUSCRIPTION_CHARGE;
+const NAME_VALUE_FOR_NUMBER_OF_TIERS = RatePlansProperties.NAME_VALUE_FOR_NUMBER_OF_TIERS;
+const DECIMAL_SCALE_VALUE = Number(RatePlansProperties.DECIMAL_SCALE_VALUE);
+const MIN_LENGTH_VALUE_FOR_NAME = Number(RatePlansProperties.MIN_LENGTH_VALUE_FOR_NAME);
+const MAX_LENGTH_VALUE_FOR_NAME = Number(RatePlansProperties.MAX_LENGTH_VALUE_FOR_NAME);
+const MIN_LENGTH_VALUE_FOR_DESCRIPTION = Number(RatePlansProperties.MIN_LENGTH_VALUE_FOR_DESCRIPTION);
+const MAX_LENGTH_VALUE_FOR_DESCRIPTION = Number(RatePlansProperties.MAX_LENGTH_VALUE_FOR_DESCRIPTION);
+const MIN_VALUE_FOR_VERSION_ID = Number(RatePlansProperties.MIN_VALUE_FOR_VERSION_ID);
+const MAX_VALUE_FOR_VERSION_ID = Number(RatePlansProperties.MAX_VALUE_FOR_VERSION_ID);
+const MIN_LENGTH_VALUE_FOR_VERSION_PLAN = Number(RatePlansProperties.MIN_LENGTH_VALUE_FOR_VERSION_PLAN);
+const MAX_LENGTH_VALUE_FOR_VERSION_PLAN = Number(RatePlansProperties.MAX_LENGTH_VALUE_FOR_VERSION_PLAN);
+const MIN_LENGTH_VALUE_FOR_TYPE_PLAN = Number(RatePlansProperties.MIN_LENGTH_VALUE_FOR_TYPE_PLAN);
+const MAX_LENGTH_VALUE_FOR_TYPE_PLAN = Number(RatePlansProperties.MAX_LENGTH_VALUE_FOR_TYPE_PLAN);
+const MIN_VALUE_FOR_SUSCRIPTION_CHARGE = Number(RatePlansProperties.MIN_VALUE_FOR_SUSCRIPTION_CHARGE);
+const MAX_VALUE_FOR_SUSCRIPTION_CHARGE = Number(RatePlansProperties.MAX_VALUE_FOR_SUSCRIPTION_CHARGE);
+const MIN_VALUE_FOR_NUMBER_OF_TIERS = Number(RatePlansProperties.MIN_VALUE_FOR_NUMBER_OF_TIERS);
+const MAX_VALUE_FOR_NUMBER_OF_TIERS = Number(RatePlansProperties.MAX_VALUE_FOR_NUMBER_OF_TIERS);
 
 @InputType()
 @ApiTags('RatePlansDTO')
@@ -38,18 +47,18 @@ export class RatePlansDTO {
    * @description name of the rate plan
    */
   @Field()
-  @IsNotEmpty({ message: 'The name cannot be empty' })
-  @IsString({ message: 'The name must be of type string' })
-  @Length(MIN_VALUE_FOR_NAME, MAX_VALUE_FOR_NAME, {
-    message: `The value of the name must be between ${MIN_VALUE_FOR_NAME} and ${MAX_VALUE_FOR_NAME} characters`,
+  @IsNotEmpty({ message: `The ${NAME_VALUE_FOR_NAME} cannot be empty` })
+  @IsString({ message: `The ${NAME_VALUE_FOR_NAME} must be of type string` })
+  @Length(MIN_LENGTH_VALUE_FOR_NAME, MAX_LENGTH_VALUE_FOR_NAME, {
+    message: `The value of the ${NAME_VALUE_FOR_NAME} must be between ${MIN_LENGTH_VALUE_FOR_NAME} and ${MAX_LENGTH_VALUE_FOR_NAME} characters`,
   })
   @ApiProperty({
-    name: 'name',
+    name: `${NAME_VALUE_FOR_NAME}`,
     description:
-      'Descriptive rate plan name. Names are unique within an operator.',
+      `Descriptive rate plan ${NAME_VALUE_FOR_NAME}. Names are unique within an operator.`,
     type: 'string',
-    minLength: MIN_VALUE_FOR_NAME,
-    maxLength: MAX_VALUE_FOR_NAME,
+    minLength: MIN_LENGTH_VALUE_FOR_NAME,
+    maxLength: MAX_LENGTH_VALUE_FOR_NAME,
     example: 'plan for individual monthly subscriptions',
   })
   name: string;
@@ -58,17 +67,17 @@ export class RatePlansDTO {
    * @description Description for a plan.
    */
   @Field()
-  @IsNotEmpty({ message: 'The description cannot be empty' })
-  @IsString({ message: 'The description must be of type string' })
-  @Length(MIN_VALUE_FOR_DESCRIPTION, MAX_VALUE_FOR_DESCRIPTION, {
-    message: `The value of the description must be between ${MIN_VALUE_FOR_DESCRIPTION} and ${MAX_VALUE_FOR_DESCRIPTION} characters`,
+  @IsNotEmpty({ message: `The ${NAME_VALUE_FOR_DESCRIPTION} cannot be empty` })
+  @IsString({ message: `The ${NAME_VALUE_FOR_DESCRIPTION} must be of type string` })
+  @Length(MIN_LENGTH_VALUE_FOR_DESCRIPTION, MAX_LENGTH_VALUE_FOR_DESCRIPTION, {
+    message: `The value of the ${NAME_VALUE_FOR_DESCRIPTION} must be between ${MIN_LENGTH_VALUE_FOR_DESCRIPTION} and ${MAX_LENGTH_VALUE_FOR_DESCRIPTION} characters`,
   })
   @ApiProperty({
-    name: 'description',
-    description: 'Description for a plan.',
+    name: `${NAME_VALUE_FOR_DESCRIPTION}`,
+    description: `${NAME_VALUE_FOR_DESCRIPTION} for a plan.`,
     type: 'string',
-    minLength: MIN_VALUE_FOR_DESCRIPTION,
-    maxLength: MAX_VALUE_FOR_DESCRIPTION,
+    minLength: MIN_LENGTH_VALUE_FOR_DESCRIPTION,
+    maxLength: MAX_LENGTH_VALUE_FOR_DESCRIPTION,
     example: 'plan for individual monthly subscriptions',
   })
   description: string;
@@ -100,16 +109,20 @@ export class RatePlansDTO {
   @Field()
   @IsNotEmpty({ message: 'The version plan cannot be empty' })
   @IsString({ message: 'The version plan must be of type string' })
-  @Length(MIN_VALUE_FOR_VERSION_PLAN, MAX_VALUE_FOR_VERSION_PLAN, {
-    message: `The value of the version plan must be between ${MIN_VALUE_FOR_VERSION_PLAN} and ${MAX_VALUE_FOR_VERSION_PLAN} characters`,
-  })
+  @Length(
+    MIN_LENGTH_VALUE_FOR_VERSION_PLAN,
+    MAX_LENGTH_VALUE_FOR_VERSION_PLAN,
+    {
+      message: `The value of the version plan must be between ${MIN_LENGTH_VALUE_FOR_VERSION_PLAN} and ${MAX_LENGTH_VALUE_FOR_VERSION_PLAN} characters`,
+    },
+  )
   @ApiProperty({
     name: 'versionPlan',
     description:
       'Specifies the version of the current rate plan. Two different versions of the same rate plan may coexist if there are billable devices assigned to each version (for prepaid plans only)',
     type: 'string',
-    minLength: MIN_VALUE_FOR_VERSION_PLAN,
-    maxLength: MAX_VALUE_FOR_VERSION_PLAN,
+    minLength: MIN_LENGTH_VALUE_FOR_VERSION_PLAN,
+    maxLength: MAX_LENGTH_VALUE_FOR_VERSION_PLAN,
     example: '1.1',
   })
   versionPlan: string;
@@ -134,16 +147,16 @@ export class RatePlansDTO {
   @Field()
   @IsNotEmpty({ message: 'The type plan cannot be empty' })
   @IsString({ message: 'The type plan must be of type string' })
-  @Length(MIN_VALUE_FOR_TYPE_PLAN, MAX_VALUE_FOR_TYPE_PLAN, {
-    message: `The value of the type plan must be between ${MIN_VALUE_FOR_TYPE_PLAN} and ${MAX_VALUE_FOR_TYPE_PLAN} characters`,
+  @Length(MIN_LENGTH_VALUE_FOR_TYPE_PLAN, MAX_LENGTH_VALUE_FOR_TYPE_PLAN, {
+    message: `The value of the type plan must be between ${MIN_LENGTH_VALUE_FOR_TYPE_PLAN} and ${MAX_LENGTH_VALUE_FOR_TYPE_PLAN} characters`,
   })
   @ApiProperty({
     name: 'type_plan',
     description:
       'The type refers to the payment method (monthly vs. prepaid) and included usage type (individual vs. pooled vs. event).',
     type: 'string',
-    minLength: MIN_VALUE_FOR_TYPE_PLAN,
-    maxLength: MAX_VALUE_FOR_TYPE_PLAN,
+    minLength: MIN_LENGTH_VALUE_FOR_TYPE_PLAN,
+    maxLength: MAX_LENGTH_VALUE_FOR_TYPE_PLAN,
     example: 'plan for individual annual subscriptions',
   })
   typePlan: string;
