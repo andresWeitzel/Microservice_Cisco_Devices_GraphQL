@@ -1,4 +1,4 @@
-![Index app](./doc/assets/componentes-example.png)
+![Index app](./doc/graphql.png)
 
 # Microservicio_Cisco_Devices_GraphQL
 Microservicio para el manejo de dispositivos cisco implementado con GraphQL, Express, Apollo, NestJS, Typescript, NodeJS, TypeORM, dotenv, cors, swagger, swagger-ui, MySQL, otros.
