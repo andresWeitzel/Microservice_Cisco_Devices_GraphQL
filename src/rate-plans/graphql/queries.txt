@@ -2,8 +2,8 @@
 # Get All paginated list
 query {
   getAllRatePlans(
-    pageNro: 1, 
-    pageSize: 10, 
+    pageNro: 0, 
+    pageSize: 100, 
     orderBy: "id", 
     orderAt: "asc"
   ) {

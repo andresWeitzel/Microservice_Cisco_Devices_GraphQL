@@ -86,16 +86,16 @@ export class RatePlansDTO {
    * @description Uniquely identifies a particular version of a rate plan in relation to every other rate plan version in the system, including different versions of the same rate plan and different versions of other rate plans. Because a rate plan may have multiple active versions at any one time, the versionId, not the id, is the only truly unique rate plan identifier..
    */
   @Field()
-  @IsNotEmpty({ message: 'The version id cannot be empty' })
-  @IsInt({ message: 'The version id must be of type integer' })
+  @IsNotEmpty({ message: `The ${NAME_VALUE_FOR_VERSION_ID} cannot be empty` })
+  @IsInt({ message: `The ${NAME_VALUE_FOR_VERSION_ID} must be of type integer` })
   @Min(MIN_VALUE_FOR_VERSION_ID, {
-    message: `the value of the version id must be greater than ${MIN_VALUE_FOR_VERSION_ID}`,
+    message: `the value of the ${NAME_VALUE_FOR_VERSION_ID} must be greater than ${MIN_VALUE_FOR_VERSION_ID}`,
   })
   @Max(MAX_VALUE_FOR_VERSION_ID, {
-    message: `the value of the version id must be less than ${MAX_VALUE_FOR_VERSION_ID}`,
+    message: `the value of the ${NAME_VALUE_FOR_VERSION_ID} must be less than ${MAX_VALUE_FOR_VERSION_ID}`,
   })
   @ApiProperty({
-    name: 'versionId',
+    name: `${NAME_VALUE_FOR_VERSION_ID}`,
     description:
       'Uniquely identifies a particular version of a rate plan in relation to every other rate plan version in the system, including different versions of the same rate plan and different versions of other rate plans. Because a rate plan may have multiple active versions at any one time, the versionId, not the id, is the only truly unique rate plan identifier.',
     type: 'int',
@@ -107,17 +107,17 @@ export class RatePlansDTO {
    * @description Uniquely identifies a particular version of a rate plan in relation to every other rate plan version in the system, including different versions of the same rate plan and different versions of other rate plans. Because a rate plan may have multiple active versions at any one time, the versionId, not the id, is the only truly unique rate plan identifier..
    */
   @Field()
-  @IsNotEmpty({ message: 'The version plan cannot be empty' })
-  @IsString({ message: 'The version plan must be of type string' })
+  @IsNotEmpty({ message: `The ${NAME_VALUE_FOR_VERSION_PLAN} cannot be empty` })
+  @IsString({ message: `The ${NAME_VALUE_FOR_VERSION_PLAN} must be of type string` })
   @Length(
     MIN_LENGTH_VALUE_FOR_VERSION_PLAN,
     MAX_LENGTH_VALUE_FOR_VERSION_PLAN,
     {
-      message: `The value of the version plan must be between ${MIN_LENGTH_VALUE_FOR_VERSION_PLAN} and ${MAX_LENGTH_VALUE_FOR_VERSION_PLAN} characters`,
+      message: `The value of the ${NAME_VALUE_FOR_VERSION_PLAN} must be between ${MIN_LENGTH_VALUE_FOR_VERSION_PLAN} and ${MAX_LENGTH_VALUE_FOR_VERSION_PLAN} characters`,
     },
   )
   @ApiProperty({
-    name: 'versionPlan',
+    name: `${NAME_VALUE_FOR_VERSION_PLAN}`,
     description:
       'Specifies the version of the current rate plan. Two different versions of the same rate plan may coexist if there are billable devices assigned to each version (for prepaid plans only)',
     type: 'string',

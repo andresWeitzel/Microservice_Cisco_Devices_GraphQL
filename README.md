@@ -2,9 +2,13 @@
 Microservicio para el manejo de dispositivos cisco implementado con GraphQL, Express, Apollo, NestJS, Typescript, NodeJS, TypeORM, dotenv, cors, swagger, swagger-ui, MySQL, otros.
 
 * [Repositorio microdb_cisco_devices_mysql](https://github.com/andresWeitzel/Microdb_Cisco_Devices_Mysql)
-* [Api Rest Documentation Cisco Devices](https://developer.cisco.com/docs/control-center/#!devices)
-* [Api Rest Documentation Cisco Rate Plans](https://developer.cisco.com/docs/control-center/#!get-rate-plans/response-example) 
-* [Api Docs cisco](https://developer.cisco.com/docs/)
+* Api Rest Documentation Cisco
+	* [Devices](https://developer.cisco.com/docs/control-center/#!devices)
+	* [Rate Plans](https://developer.cisco.com/docs/control-center/#!get-rate-plans/response-example)
+	* [Status Devices](https://pubhub.devnetcloud.com/media/control-center-sandbox/docs/Content/api/rest/get_started_rest.htm#api_sim_status)
+	* [Device Audit History](https://developer.cisco.com/docs/control-center/#!get-device-audit-history/get-device-audit-history)
+	* [Device Usage](https://developer.cisco.com/docs/control-center/#!get-device-usage/response-example)
+	* [Devices Usage By Zone](https://developer.cisco.com/docs/control-center/#!get-device-usage-by-zone/response-example)
 
 <br>
 
@@ -141,6 +145,16 @@ npm i @nestjs/swagger
 ```git
 npm i class-validator
 ```
+* Se resume instalación de plugins para acotar documentación. Para la totalidad de los mismos revisar `package.json`.
+* Ejecutamos la app desde terminal.
+```git
+npm run start:dev
+```
+* Entramos a la interfaz de Gaphql por defecto para las peticiones de la Api.
+```git
+http://localhost:3200/graphql o http://localhost:3300/graphql
+```
+
 
 
 <br>
@@ -324,6 +338,7 @@ nest g resource resourceName --no-spec
 #### Librerías
 *   [Validación de campos](https://www.npmjs.com/package/node-input-validator)
 *   [Validación de propiedades de clases](https://www.npmjs.com/package/class-validator)
+* [Variables de entorno con dotenv typescript](https://medium.com/@glasshost/define-types-for-process-env-in-typescript-c89b3c8ffbb2)
 
 
 <br>

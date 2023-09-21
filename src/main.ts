@@ -1,10 +1,12 @@
 /* eslint-disable prettier/prettier */
 //External
 import { NestFactory } from '@nestjs/core';
-import { ValidationPipe } from '@nestjs/common';
+import { ValidationPipe  } from '@nestjs/common';
 import { useContainer } from 'class-validator';
 //Module
 import { AppModule } from './app.module';
+//Const-vars
+const APOLLO_PORT_VALUE = process.env.APOLLO_PORT_ONE_VALUE || process.env.APOLLO_PORT_TWO_VALUE;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -22,7 +24,7 @@ async function bootstrap() {
   // this is an important step, for further steps in this article
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
   //--end with validations--
+  app.listen(APOLLO_PORT_VALUE);
 
-  await app.listen(3002);
 }
 bootstrap();
