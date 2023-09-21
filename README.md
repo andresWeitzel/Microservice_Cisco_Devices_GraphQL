@@ -1,5 +1,7 @@
+![Index app](./doc/graphql.png)
+
 # Microservicio_Cisco_Devices_GraphQL
-Microservicio para el manejo de dispositivos cisco implementado con GraphQL, Express, Apollo, NestJS, Typescript, NodeJS, TypeORM, dotenv, cors, swagger, swagger-ui, MySQL, otros.
+Microservicio para el manejo de dispositivos cisco implementado con GraphQL, Express, Apollo, NestJS, Typescript, NodeJS, TypeORM, Dotenv, Cors, Swagger, Swagger-ui, MySQL, Otros.
 
 * [Repositorio microdb_cisco_devices_mysql](https://github.com/andresWeitzel/Microdb_Cisco_Devices_Mysql)
 * Api Rest Documentation Cisco
