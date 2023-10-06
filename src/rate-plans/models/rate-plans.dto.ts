@@ -24,6 +24,8 @@ const NAME_VALUE_FOR_STATUS = RatePlansProperties.NAME_VALUE_FOR_STATUS;
 const NAME_VALUE_FOR_TYPE_PLAN = RatePlansProperties.NAME_VALUE_FOR_TYPE_PLAN;
 const NAME_VALUE_FOR_SUSCRIPTION_CHARGE = RatePlansProperties.NAME_VALUE_FOR_SUSCRIPTION_CHARGE;
 const NAME_VALUE_FOR_NUMBER_OF_TIERS = RatePlansProperties.NAME_VALUE_FOR_NUMBER_OF_TIERS;
+const NAME_VALUE_FOR_CREATION_DATE = RatePlansProperties.NAME_VALUE_FOR_CREATION_DATE;
+const NAME_VALUE_FOR_UPDATE_DATE = RatePlansProperties.NAME_VALUE_FOR_UPDATE_DATE;
 const DECIMAL_SCALE_VALUE = Number(RatePlansProperties.DECIMAL_SCALE_VALUE);
 const MIN_LENGTH_VALUE_FOR_NAME = Number(RatePlansProperties.MIN_LENGTH_VALUE_FOR_NAME);
 const MAX_LENGTH_VALUE_FOR_NAME = Number(RatePlansProperties.MAX_LENGTH_VALUE_FOR_NAME);
@@ -132,10 +134,10 @@ export class RatePlansDTO {
    */
   @Field()
   @IsEnum(Status)
-  @IsNotEmpty({ message: 'The status of a device cannot be empty' })
+  @IsNotEmpty({ message: `The ${NAME_VALUE_FOR_STATUS} of a device cannot be empty` })
   @ApiProperty({
-    name: 'status',
-    description: 'status for a device',
+    name: `${NAME_VALUE_FOR_STATUS}`,
+    description: `${NAME_VALUE_FOR_STATUS} for a device`,
     type: 'enum',
     example: 'ACTIVE (only enum: ACTIVE, INACTIVE or PUBLISHED)',
   })
@@ -145,13 +147,13 @@ export class RatePlansDTO {
    * @description The type refers to the payment method (monthly vs. prepaid) and included usage type (individual vs. pooled vs. event).
    */
   @Field()
-  @IsNotEmpty({ message: 'The type plan cannot be empty' })
-  @IsString({ message: 'The type plan must be of type string' })
+  @IsNotEmpty({ message: `The ${NAME_VALUE_FOR_TYPE_PLAN} cannot be empty` })
+  @IsString({ message: `The ${NAME_VALUE_FOR_TYPE_PLAN} must be of type string` })
   @Length(MIN_LENGTH_VALUE_FOR_TYPE_PLAN, MAX_LENGTH_VALUE_FOR_TYPE_PLAN, {
-    message: `The value of the type plan must be between ${MIN_LENGTH_VALUE_FOR_TYPE_PLAN} and ${MAX_LENGTH_VALUE_FOR_TYPE_PLAN} characters`,
+    message: `The value of the ${NAME_VALUE_FOR_TYPE_PLAN} must be between ${MIN_LENGTH_VALUE_FOR_TYPE_PLAN} and ${MAX_LENGTH_VALUE_FOR_TYPE_PLAN} characters`,
   })
   @ApiProperty({
-    name: 'type_plan',
+    name: `${NAME_VALUE_FOR_TYPE_PLAN}`,
     description:
       'The type refers to the payment method (monthly vs. prepaid) and included usage type (individual vs. pooled vs. event).',
     type: 'string',
@@ -165,7 +167,7 @@ export class RatePlansDTO {
    * @description	For monthly rate plans, this charge is the monthly subscription fee for each of the subscribers in the tier. For prepaid rate plans, this is a one-time charge per subscriber that covers the entire term of the plan.
    */
   @Field()
-  @IsNotEmpty({ message: 'The suscription charge of device cannot be empty' })
+  @IsNotEmpty({ message: `The ${NAME_VALUE_FOR_SUSCRIPTION_CHARGE} of device cannot be empty` })
   @IsNumber(
     {
       allowInfinity: false,
@@ -174,17 +176,17 @@ export class RatePlansDTO {
     },
     {
       message:
-        'The suscription charge of a device must be of type number (decimal) and contain only three decimal places after the separator',
+        `The ${NAME_VALUE_FOR_SUSCRIPTION_CHARGE} of a device must be of type number (decimal) and contain only three decimal places after the separator`,
     },
   )
   @Min(MIN_VALUE_FOR_SUSCRIPTION_CHARGE, {
-    message: `The suscription charge of a device must be greater than ${MIN_VALUE_FOR_SUSCRIPTION_CHARGE}`,
+    message: `The ${NAME_VALUE_FOR_SUSCRIPTION_CHARGE} of a device must be greater than ${MIN_VALUE_FOR_SUSCRIPTION_CHARGE}`,
   })
   @Max(MAX_VALUE_FOR_SUSCRIPTION_CHARGE, {
-    message: `The suscription charge of a device must be less than ${MAX_VALUE_FOR_SUSCRIPTION_CHARGE}`,
+    message: `The ${NAME_VALUE_FOR_SUSCRIPTION_CHARGE} of a device must be less than ${MAX_VALUE_FOR_SUSCRIPTION_CHARGE}`,
   })
   @ApiProperty({
-    name: 'subscriptionCharge',
+    name: `${NAME_VALUE_FOR_SUSCRIPTION_CHARGE}`,
     description:
       'For monthly rate plans, this charge is the monthly subscription fee for each of the subscribers in the tier. For prepaid rate plans, this is a one-time charge per subscriber that covers the entire term of the plan.',
     type: 'decimal',
@@ -196,18 +198,18 @@ export class RatePlansDTO {
    * @description		The number of tiers specifies how many subscription tiers the rate plan has. Each tier can have different subscription fees, account charges (for certain plan types), usage allotments, and overage charges..
    */
   @Field()
-  @IsNotEmpty({ message: 'The number of tiers cannot be empty' })
-  @IsInt({ message: 'The number of tiers must be of type integer' })
+  @IsNotEmpty({ message: `The ${NAME_VALUE_FOR_NUMBER_OF_TIERS} cannot be empty` })
+  @IsInt({ message: `The ${NAME_VALUE_FOR_NUMBER_OF_TIERS} must be of type integer` })
   @Min(MIN_VALUE_FOR_NUMBER_OF_TIERS, {
-    message: `the value of the number of tiers must be greater than ${MIN_VALUE_FOR_NUMBER_OF_TIERS}`,
+    message: `The value of the ${NAME_VALUE_FOR_NUMBER_OF_TIERS} must be greater than ${MIN_VALUE_FOR_NUMBER_OF_TIERS}`,
   })
   @Max(MAX_VALUE_FOR_NUMBER_OF_TIERS, {
-    message: `the value of the number of tiers must be less than ${MAX_VALUE_FOR_NUMBER_OF_TIERS}`,
+    message: `The value of the ${NAME_VALUE_FOR_NUMBER_OF_TIERS} must be less than ${MAX_VALUE_FOR_NUMBER_OF_TIERS}`,
   })
   @ApiProperty({
-    name: 'number_of_tiers',
+    name: `${NAME_VALUE_FOR_NUMBER_OF_TIERS}`,
     description:
-      '	The number of tiers specifies how many subscription tiers the rate plan has. Each tier can have different subscription fees, account charges (for certain plan types), usage allotments, and overage charges.',
+      `The ${NAME_VALUE_FOR_NUMBER_OF_TIERS} specifies how many subscription tiers the rate plan has. Each tier can have different subscription fees, account charges (for certain plan types), usage allotments, and overage charges.`,
     type: 'int',
     example: 1,
   })
