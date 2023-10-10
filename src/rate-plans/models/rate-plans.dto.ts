@@ -16,31 +16,42 @@ import {
 import { Status } from '../enums/status';
 import { RatePlansProperties } from '../enums/class-properties';
 //Const-vars
-const NAME_VALUE_FOR_NAME = RatePlansProperties.NAME_VALUE_FOR_NAME;
-const NAME_VALUE_FOR_DESCRIPTION = RatePlansProperties.NAME_VALUE_FOR_DESCRIPTION;
-const NAME_VALUE_FOR_VERSION_ID = RatePlansProperties.NAME_VALUE_FOR_VERSION_ID;
-const NAME_VALUE_FOR_VERSION_PLAN = RatePlansProperties.NAME_VALUE_FOR_VERSION_PLAN;
-const NAME_VALUE_FOR_STATUS = RatePlansProperties.NAME_VALUE_FOR_STATUS;
-const NAME_VALUE_FOR_TYPE_PLAN = RatePlansProperties.NAME_VALUE_FOR_TYPE_PLAN;
-const NAME_VALUE_FOR_SUSCRIPTION_CHARGE = RatePlansProperties.NAME_VALUE_FOR_SUSCRIPTION_CHARGE;
-const NAME_VALUE_FOR_NUMBER_OF_TIERS = RatePlansProperties.NAME_VALUE_FOR_NUMBER_OF_TIERS;
-const NAME_VALUE_FOR_CREATION_DATE = RatePlansProperties.NAME_VALUE_FOR_CREATION_DATE;
-const NAME_VALUE_FOR_UPDATE_DATE = RatePlansProperties.NAME_VALUE_FOR_UPDATE_DATE;
+//Decimal config
 const DECIMAL_SCALE_VALUE = Number(RatePlansProperties.DECIMAL_SCALE_VALUE);
+//name Field
+const NAME_VALUE_FOR_NAME = RatePlansProperties.NAME_VALUE_FOR_NAME;
 const MIN_LENGTH_VALUE_FOR_NAME = Number(RatePlansProperties.MIN_LENGTH_VALUE_FOR_NAME);
 const MAX_LENGTH_VALUE_FOR_NAME = Number(RatePlansProperties.MAX_LENGTH_VALUE_FOR_NAME);
+//description field
+const NAME_VALUE_FOR_DESCRIPTION = RatePlansProperties.NAME_VALUE_FOR_DESCRIPTION;
 const MIN_LENGTH_VALUE_FOR_DESCRIPTION = Number(RatePlansProperties.MIN_LENGTH_VALUE_FOR_DESCRIPTION);
 const MAX_LENGTH_VALUE_FOR_DESCRIPTION = Number(RatePlansProperties.MAX_LENGTH_VALUE_FOR_DESCRIPTION);
+//version_id field
+const NAME_VALUE_FOR_VERSION_ID = RatePlansProperties.NAME_VALUE_FOR_VERSION_ID;
 const MIN_VALUE_FOR_VERSION_ID = Number(RatePlansProperties.MIN_VALUE_FOR_VERSION_ID);
 const MAX_VALUE_FOR_VERSION_ID = Number(RatePlansProperties.MAX_VALUE_FOR_VERSION_ID);
+//version_plan field
+const NAME_VALUE_FOR_VERSION_PLAN = RatePlansProperties.NAME_VALUE_FOR_VERSION_PLAN;
 const MIN_LENGTH_VALUE_FOR_VERSION_PLAN = Number(RatePlansProperties.MIN_LENGTH_VALUE_FOR_VERSION_PLAN);
 const MAX_LENGTH_VALUE_FOR_VERSION_PLAN = Number(RatePlansProperties.MAX_LENGTH_VALUE_FOR_VERSION_PLAN);
+//status field
+const NAME_VALUE_FOR_STATUS = RatePlansProperties.NAME_VALUE_FOR_STATUS;
+//type_plan field
+const NAME_VALUE_FOR_TYPE_PLAN = RatePlansProperties.NAME_VALUE_FOR_TYPE_PLAN;
 const MIN_LENGTH_VALUE_FOR_TYPE_PLAN = Number(RatePlansProperties.MIN_LENGTH_VALUE_FOR_TYPE_PLAN);
 const MAX_LENGTH_VALUE_FOR_TYPE_PLAN = Number(RatePlansProperties.MAX_LENGTH_VALUE_FOR_TYPE_PLAN);
+//suscription_charge field
+const NAME_VALUE_FOR_SUSCRIPTION_CHARGE = RatePlansProperties.NAME_VALUE_FOR_SUSCRIPTION_CHARGE;
 const MIN_VALUE_FOR_SUSCRIPTION_CHARGE = Number(RatePlansProperties.MIN_VALUE_FOR_SUSCRIPTION_CHARGE);
 const MAX_VALUE_FOR_SUSCRIPTION_CHARGE = Number(RatePlansProperties.MAX_VALUE_FOR_SUSCRIPTION_CHARGE);
+//number_of_tiers field
+const NAME_VALUE_FOR_NUMBER_OF_TIERS = RatePlansProperties.NAME_VALUE_FOR_NUMBER_OF_TIERS;
 const MIN_VALUE_FOR_NUMBER_OF_TIERS = Number(RatePlansProperties.MIN_VALUE_FOR_NUMBER_OF_TIERS);
 const MAX_VALUE_FOR_NUMBER_OF_TIERS = Number(RatePlansProperties.MAX_VALUE_FOR_NUMBER_OF_TIERS);
+
+
+
+
 
 @InputType()
 @ApiTags('RatePlansDTO')

@@ -56,6 +56,9 @@ const MAX_VALUE_FOR_NUMBER_OF_TIERS = Number(RatePlansProperties.MAX_VALUE_FOR_N
 const NAME_VALUE_FOR_CREATION_DATE = RatePlansProperties.NAME_VALUE_FOR_CREATION_DATE;
 //update_date field
 const NAME_VALUE_FOR_UPDATE_DATE = RatePlansProperties.NAME_VALUE_FOR_UPDATE_DATE;
+//For dates
+const MIN_VALUE_FOR_CREATION_UPDATE_DATE = Number(RatePlansProperties.MIN_VALUE_FOR_CREATION_UPDATE_DATE);
+const MAX_VALUE_FOR_CREATION_UPDATE_DATE = Number(RatePlansProperties.MAX_VALUE_FOR_CREATION_UPDATE_DATE);
 
 
 @ObjectType('RatePlans')
@@ -240,16 +243,16 @@ export class RatePlans extends BaseEntity {
    */
   @Field()
   @CreateDateColumn({
-    name: 'creation_date',
+    name: `${NAME_VALUE_FOR_CREATION_DATE}`,
     type: 'datetime',
     default: () => 'CURRENT_TIMESTAMP',
   })
   @ApiProperty({
-    name: 'creationDate',
-    description: 'creation date for a rate-plan record',
+    name: `${NAME_VALUE_FOR_CREATION_DATE}`,
+    description: `${NAME_VALUE_FOR_CREATION_DATE} for a rate-plan record`,
     type: 'datetime',
-    minLength: MIN_VALUE_LENGTH_DATE,
-    maxLength: MAX_VALUE_LENGTH_DATE,
+    minLength: MIN_VALUE_FOR_CREATION_UPDATE_DATE,
+    maxLength: MAX_VALUE_FOR_CREATION_UPDATE_DATE,
     example: '2023-02-17T00:47:58.000Z',
   })
   creationDate: Date;
@@ -259,16 +262,16 @@ export class RatePlans extends BaseEntity {
    */
   @Field()
   @UpdateDateColumn({
-    name: 'update_date',
+    name: `${NAME_VALUE_FOR_UPDATE_DATE}`,
     type: 'datetime',
     default: () => 'CURRENT_TIMESTAMP',
   })
   @ApiProperty({
-    name: 'updateDate',
-    description: 'update date for a product',
+    name: `${NAME_VALUE_FOR_UPDATE_DATE}`,
+    description: `${NAME_VALUE_FOR_UPDATE_DATE} for a product`,
     type: 'datetime',
-    minLength: MIN_VALUE_LENGTH_DATE,
-    maxLength: MAX_VALUE_LENGTH_DATE,
+    minLength: MIN_VALUE_FOR_CREATION_UPDATE_DATE,
+    maxLength: MAX_VALUE_FOR_CREATION_UPDATE_DATE,
     example: '2023-02-17T00:47:58.000Z',
   })
   updateDate: Date;
