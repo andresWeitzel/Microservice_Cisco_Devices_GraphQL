@@ -4,6 +4,7 @@
 Microservicio para el manejo de dispositivos cisco implementado con GraphQL, Express, Apollo, NestJS, Typescript, NodeJS, TypeORM, Dotenv, Cors, Swagger, Swagger-ui, MySQL, Otros.
 
 * [Repositorio microdb_cisco_devices_mysql](https://github.com/andresWeitzel/Microdb_Cisco_Devices_Mysql)
+* [Playlist prueba de funcionalidad](https://www.youtube.com/playlist?list=PLCl11UFjHurC4DVGjeTuUOID0gjVxGDd3)
 * Api Rest Documentation Cisco
 	* [Devices](https://developer.cisco.com/docs/control-center/#!devices)
 	* [Rate Plans](https://developer.cisco.com/docs/control-center/#!get-rate-plans/response-example)
