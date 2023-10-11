@@ -15,6 +15,8 @@ let ratePlanObj: RatePlans;
 let newRatePlan: any;
 let updateRatePlan:any;
 
+//Fix responses 
+
 /**
  * @description Rate plants service for all crud operations
  * @param {Object} event Object type
