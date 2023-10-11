@@ -14,6 +14,9 @@ let ratePlansList: RatePlans[];
 let ratePlanObj: RatePlans;
 let newRatePlan: any;
 let updateRatePlan:any;
+let msgResponse:string;
+let msgLog:string;
+
 
 //Fix responses 
 
@@ -45,7 +48,10 @@ export class RatePlansService {
 
       return await this.ratePlansRepository.save(newRatePlan);
     } catch (error) {
-      console.log(`Error in createRatePlan service. Caused by ${error}`);
+      msgResponse = 'ERROR in createRatePlan function service';
+      msgLog = msgResponse + `Caused by ${error}`;
+      console.log(msgLog);
+      return msgResponse;
     }
   }
 
