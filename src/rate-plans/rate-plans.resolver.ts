@@ -8,6 +8,9 @@ import { RatePlansService } from './rate-plans.service';
 //Models
 import { RatePlans } from './models/rate-plans.entity';
 import { RatePlansDTO } from './models/rate-plans.dto';
+//const-vars
+let msgResponse:string;
+let msgLog:string;
 
 @Resolver()
 @ApiTags('RatePlansResolver')
@@ -28,7 +31,10 @@ export class RatePlansResolver {
     try {
       return await this.ratePlansService.createRatePlan(ratePlanObj);
     } catch (error) {
-      console.log(`Error in createRatePlan controller. Caused by ${error}`);
+      msgResponse = 'ERROR in createRatePlan function controller';
+      msgLog = msgResponse + `Caused by ${error}`;
+      console.log(msgLog);
+      return msgResponse;
     }
   }
 

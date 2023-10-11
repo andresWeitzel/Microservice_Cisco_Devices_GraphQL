@@ -12,23 +12,53 @@ import {
 } from 'typeorm';
 //Enums
 import { Status } from '../enums/status';
+import { RatePlansProperties } from '../enums/class-properties';
 //Const-vars
-const MIN_VALUE_ID = 1;
-const MAX_VALUE_ID = 9007199254740991n;
-const DECIMAL_SCALE_VALUE = 3;
-const DECIMAL_PRECISION_VALUE = 6;
-const MIN_VALUE_FOR_NAME = 4;
-const MAX_VALUE_FOR_NAME = 200;
-const MIN_VALUE_FOR_DESCRIPTION = 4;
-const MAX_VALUE_FOR_DESCRIPTION = 500;
-const MIN_VALUE_FOR_VERSION_PLAN = 1;
-const MAX_VALUE_FOR_VERSION_PLAN = 20;
-const MIN_VALUE_FOR_TYPE_PLAN = 2;
-const MAX_VALUE_FOR_TYPE_PLAN = 200;
-const DEFAULT_VALUE_FOR_SUSCRIPTION_CHARGE = 2.99;
-const MIN_VALUE_FOR_NUMBER_OF_TIERS = 1;
-const MIN_VALUE_LENGTH_DATE = 4;
-const MAX_VALUE_LENGTH_DATE = 50;
+//Decimal config
+const DECIMAL_SCALE_VALUE = Number(RatePlansProperties.DECIMAL_SCALE_VALUE);
+const DECIMAL_PRECISION_VALUE = Number(RatePlansProperties.DECIMAL_PRECISION_VALUE);
+//id Field
+const NAME_VALUE_FOR_ID = RatePlansProperties.NAME_VALUE_FOR_ID;
+const MIN_LENGTH_VALUE_FOR_ID = Number(RatePlansProperties.MIN_LENGTH_VALUE_FOR_ID);
+const MAX_LENGTH_VALUE_FOR_ID = Number(RatePlansProperties.MAX_LENGTH_VALUE_FOR_ID);
+//name Field
+const NAME_VALUE_FOR_NAME = RatePlansProperties.NAME_VALUE_FOR_NAME;
+const MIN_LENGTH_VALUE_FOR_NAME = Number(RatePlansProperties.MIN_LENGTH_VALUE_FOR_NAME);
+const MAX_LENGTH_VALUE_FOR_NAME = Number(RatePlansProperties.MAX_LENGTH_VALUE_FOR_NAME);
+//description field
+const NAME_VALUE_FOR_DESCRIPTION = RatePlansProperties.NAME_VALUE_FOR_DESCRIPTION;
+const MIN_LENGTH_VALUE_FOR_DESCRIPTION = Number(RatePlansProperties.MIN_LENGTH_VALUE_FOR_DESCRIPTION);
+const MAX_LENGTH_VALUE_FOR_DESCRIPTION = Number(RatePlansProperties.MAX_LENGTH_VALUE_FOR_DESCRIPTION);
+//version_id field
+const NAME_VALUE_FOR_VERSION_ID = RatePlansProperties.NAME_VALUE_FOR_VERSION_ID;
+const MIN_VALUE_FOR_VERSION_ID = Number(RatePlansProperties.MIN_VALUE_FOR_VERSION_ID);
+const MAX_VALUE_FOR_VERSION_ID = Number(RatePlansProperties.MAX_VALUE_FOR_VERSION_ID);
+//version_plan field
+const NAME_VALUE_FOR_VERSION_PLAN = RatePlansProperties.NAME_VALUE_FOR_VERSION_PLAN;
+const MIN_LENGTH_VALUE_FOR_VERSION_PLAN = Number(RatePlansProperties.MIN_LENGTH_VALUE_FOR_VERSION_PLAN);
+const MAX_LENGTH_VALUE_FOR_VERSION_PLAN = Number(RatePlansProperties.MAX_LENGTH_VALUE_FOR_VERSION_PLAN);
+//status field
+const NAME_VALUE_FOR_STATUS = RatePlansProperties.NAME_VALUE_FOR_STATUS;
+//type_plan field
+const NAME_VALUE_FOR_TYPE_PLAN = RatePlansProperties.NAME_VALUE_FOR_TYPE_PLAN;
+const MIN_LENGTH_VALUE_FOR_TYPE_PLAN = Number(RatePlansProperties.MIN_LENGTH_VALUE_FOR_TYPE_PLAN);
+const MAX_LENGTH_VALUE_FOR_TYPE_PLAN = Number(RatePlansProperties.MAX_LENGTH_VALUE_FOR_TYPE_PLAN);
+//sucription_charge field
+const NAME_VALUE_FOR_SUSCRIPTION_CHARGE = RatePlansProperties.NAME_VALUE_FOR_SUSCRIPTION_CHARGE;
+const DEFAULT_VALUE_FOR_SUSCRIPTION_CHARGE = RatePlansProperties.DEFAULT_VALUE_FOR_SUSCRIPTION_CHARGE;
+const MIN_VALUE_FOR_SUSCRIPTION_CHARGE = Number(RatePlansProperties.MIN_VALUE_FOR_SUSCRIPTION_CHARGE);
+const MAX_VALUE_FOR_SUSCRIPTION_CHARGE = Number(RatePlansProperties.MAX_VALUE_FOR_SUSCRIPTION_CHARGE);
+//number_of_tiers_field
+const NAME_VALUE_FOR_NUMBER_OF_TIERS = RatePlansProperties.NAME_VALUE_FOR_NUMBER_OF_TIERS;
+const MIN_VALUE_FOR_NUMBER_OF_TIERS = Number(RatePlansProperties.MIN_VALUE_FOR_NUMBER_OF_TIERS);
+const MAX_VALUE_FOR_NUMBER_OF_TIERS = Number(RatePlansProperties.MAX_VALUE_FOR_NUMBER_OF_TIERS);
+//creation_date field
+const NAME_VALUE_FOR_CREATION_DATE = RatePlansProperties.NAME_VALUE_FOR_CREATION_DATE;
+//update_date field
+const NAME_VALUE_FOR_UPDATE_DATE = RatePlansProperties.NAME_VALUE_FOR_UPDATE_DATE;
+//For dates
+const MIN_VALUE_FOR_CREATION_UPDATE_DATE = Number(RatePlansProperties.MIN_VALUE_FOR_CREATION_UPDATE_DATE);
+const MAX_VALUE_FOR_CREATION_UPDATE_DATE = Number(RatePlansProperties.MAX_VALUE_FOR_CREATION_UPDATE_DATE);
 
 
 @ObjectType('RatePlans')
@@ -41,11 +71,11 @@ export class RatePlans extends BaseEntity {
   @Field()
   @PrimaryGeneratedColumn('increment', { type: 'bigint' })
   @ApiProperty({
-    name: 'id',
+    name: `${NAME_VALUE_FOR_ID}`,
     description: 'Identifier for a rate plan',
     type: 'bigint',
-    minimum: MIN_VALUE_ID,
-    maximum: Number(MAX_VALUE_ID),
+    minimum: MIN_LENGTH_VALUE_FOR_ID,
+    maximum: MAX_LENGTH_VALUE_FOR_ID,
     nullable: false,
     example: 123,
   })
@@ -56,17 +86,17 @@ export class RatePlans extends BaseEntity {
    */
   @Field()
   @Column({
-    name: 'name',
-    length: MAX_VALUE_FOR_NAME,
+    name: `${NAME_VALUE_FOR_NAME}`,
+    length: MAX_LENGTH_VALUE_FOR_NAME,
     nullable: false,
   })
   @ApiProperty({
-    name: 'name',
+    name: `${NAME_VALUE_FOR_NAME}`,
     description:
-      'Descriptive rate plan name. Names are unique within an operator.',
+      `Descriptive rate plan ${NAME_VALUE_FOR_NAME}. Names are unique within an operator.`,
     type: 'string',
-    minLength: MIN_VALUE_FOR_NAME,
-    maxLength: MAX_VALUE_FOR_NAME,
+    minLength: MIN_LENGTH_VALUE_FOR_NAME,
+    maxLength: MAX_LENGTH_VALUE_FOR_NAME,
     example: 'plan for individual monthly subscriptions',
   })
   name: string;
@@ -76,16 +106,16 @@ export class RatePlans extends BaseEntity {
    */
   @Field()
   @Column({
-    name: 'description',
-    length: MAX_VALUE_FOR_DESCRIPTION,
+    name: `${NAME_VALUE_FOR_DESCRIPTION}`,
+    length: MAX_LENGTH_VALUE_FOR_DESCRIPTION,
     nullable: false,
   })
   @ApiProperty({
-    name: 'description',
-    description: 'Description for a plan.',
+    name: `${NAME_VALUE_FOR_DESCRIPTION}`,
+    description: `${NAME_VALUE_FOR_DESCRIPTION} for a plan.`,
     type: 'string',
-    minLength: MIN_VALUE_FOR_DESCRIPTION,
-    maxLength: MAX_VALUE_FOR_DESCRIPTION,
+    minLength: MIN_LENGTH_VALUE_FOR_DESCRIPTION,
+    maxLength: MAX_LENGTH_VALUE_FOR_DESCRIPTION,
     example: 'plan for individual monthly subscriptions',
   })
   description: string;
@@ -95,12 +125,12 @@ export class RatePlans extends BaseEntity {
    */
   @Field()
   @Column({
-    name: 'version_id',
+    name: `${NAME_VALUE_FOR_VERSION_ID}`,
     type: 'int',
     nullable: false,
   })
   @ApiProperty({
-    name: 'versionId',
+    name: `${NAME_VALUE_FOR_VERSION_ID}`,
     description:
       'Uniquely identifies a particular version of a rate plan in relation to every other rate plan version in the system, including different versions of the same rate plan and different versions of other rate plans. Because a rate plan may have multiple active versions at any one time, the versionId, not the id, is the only truly unique rate plan identifier.',
     type: 'int',
@@ -113,18 +143,18 @@ export class RatePlans extends BaseEntity {
    */
   @Field()
   @Column({
-    name: 'version_plan',
-    length: MAX_VALUE_FOR_VERSION_PLAN,
+    name: `${NAME_VALUE_FOR_VERSION_PLAN}`,
+    length: MAX_LENGTH_VALUE_FOR_VERSION_PLAN,
     nullable: true,
     default: '1.0',
   })
   @ApiProperty({
-    name: 'versionPlan',
+    name: `${NAME_VALUE_FOR_VERSION_PLAN}`,
     description:
-      'Specifies the version of the current rate plan. Two different versions of the same rate plan may coexist if there are billable devices assigned to each version (for prepaid plans only)',
+    `Specifies the ${NAME_VALUE_FOR_VERSION_PLAN} of the current rate plan. Two different versions of the same rate plan may coexist if there are billable devices assigned to each version (for prepaid plans only)`,
     type: 'string',
-    minLength: MIN_VALUE_FOR_VERSION_PLAN,
-    maxLength: MAX_VALUE_FOR_VERSION_PLAN,
+    minLength: MIN_LENGTH_VALUE_FOR_VERSION_PLAN,
+    maxLength: MAX_LENGTH_VALUE_FOR_VERSION_PLAN,
     example: '1.1',
   })
   versionPlan: string;
@@ -134,15 +164,15 @@ export class RatePlans extends BaseEntity {
    */
   @Field()
   @Column({
-    name: 'status',
+    name: `${NAME_VALUE_FOR_STATUS}`,
     type: 'enum',
     enum: Status,
     default: Status.ACTIVE,
     nullable: false,
   })
   @ApiProperty({
-    name: 'status',
-    description: 'status for a product',
+    name: `${NAME_VALUE_FOR_STATUS}`,
+    description:`${NAME_VALUE_FOR_STATUS} for a product`,
     type: 'enum',
     example: 'ACTIVE (only enum: ACTIVE, INACTIVE or PUBLISHED)',
   })
@@ -153,17 +183,17 @@ export class RatePlans extends BaseEntity {
    */
   @Field()
   @Column({
-    name: 'type_plan',
-    length: MAX_VALUE_FOR_TYPE_PLAN,
+    name: `${NAME_VALUE_FOR_TYPE_PLAN}`,
+    length: MAX_LENGTH_VALUE_FOR_TYPE_PLAN,
     nullable: false,
   })
   @ApiProperty({
-    name: 'typePlan',
+    name: `${NAME_VALUE_FOR_TYPE_PLAN}`,
     description:
       'The type refers to the payment method (monthly vs. prepaid) and included usage type (individual vs. pooled vs. event).',
     type: 'string',
-    minLength: MIN_VALUE_FOR_TYPE_PLAN,
-    maxLength: MAX_VALUE_FOR_TYPE_PLAN,
+    minLength: MIN_LENGTH_VALUE_FOR_TYPE_PLAN,
+    maxLength: MAX_LENGTH_VALUE_FOR_TYPE_PLAN,
     example: 'plan for individual annual subscriptions',
   })
   typePlan: string;
@@ -173,7 +203,7 @@ export class RatePlans extends BaseEntity {
    */
   @Field()
   @Column({
-    name: 'subscription_charge',
+    name: `${NAME_VALUE_FOR_SUSCRIPTION_CHARGE}`,
     type: 'decimal',
     nullable: true,
     default: DEFAULT_VALUE_FOR_SUSCRIPTION_CHARGE,
@@ -181,7 +211,7 @@ export class RatePlans extends BaseEntity {
     scale: DECIMAL_SCALE_VALUE,
   })
   @ApiProperty({
-    name: 'subscriptionCharge',
+    name: `${NAME_VALUE_FOR_SUSCRIPTION_CHARGE}`,
     description:
       'For monthly rate plans, this charge is the monthly subscription fee for each of the subscribers in the tier. For prepaid rate plans, this is a one-time charge per subscriber that covers the entire term of the plan.',
     type: 'decimal',
@@ -194,15 +224,15 @@ export class RatePlans extends BaseEntity {
    */
   @Field()
   @Column({
-    name: 'number_of_tiers',
+    name: `${NAME_VALUE_FOR_NUMBER_OF_TIERS}`,
     type: 'int',
     nullable: true,
     default: MIN_VALUE_FOR_NUMBER_OF_TIERS,
   })
   @ApiProperty({
-    name: 'numberOfTiers',
+    name: `${NAME_VALUE_FOR_NUMBER_OF_TIERS}`,
     description:
-      '	The number of tiers specifies how many subscription tiers the rate plan has. Each tier can have different subscription fees, account charges (for certain plan types), usage allotments, and overage charges.',
+      `The ${NAME_VALUE_FOR_NUMBER_OF_TIERS} specifies how many subscription tiers the rate plan has. Each tier can have different subscription fees, account charges (for certain plan types), usage allotments, and overage charges.`,
     type: 'int',
     example: MIN_VALUE_FOR_NUMBER_OF_TIERS,
   })
@@ -213,16 +243,16 @@ export class RatePlans extends BaseEntity {
    */
   @Field()
   @CreateDateColumn({
-    name: 'creation_date',
+    name: `${NAME_VALUE_FOR_CREATION_DATE}`,
     type: 'datetime',
-    nullable: false,
+    default: () => 'CURRENT_TIMESTAMP',
   })
   @ApiProperty({
-    name: 'creationDate',
-    description: 'creation date for a rate-plan record',
+    name: `${NAME_VALUE_FOR_CREATION_DATE}`,
+    description: `${NAME_VALUE_FOR_CREATION_DATE} for a rate-plan record`,
     type: 'datetime',
-    minLength: MIN_VALUE_LENGTH_DATE,
-    maxLength: MAX_VALUE_LENGTH_DATE,
+    minLength: MIN_VALUE_FOR_CREATION_UPDATE_DATE,
+    maxLength: MAX_VALUE_FOR_CREATION_UPDATE_DATE,
     example: '2023-02-17T00:47:58.000Z',
   })
   creationDate: Date;
@@ -231,13 +261,17 @@ export class RatePlans extends BaseEntity {
    * @description	update date for a rate-plan record
    */
   @Field()
-  @UpdateDateColumn({ name: 'update_date', type: 'datetime', nullable: false })
-  @ApiProperty({
-    name: 'updateDate',
-    description: 'update date for a product',
+  @UpdateDateColumn({
+    name: `${NAME_VALUE_FOR_UPDATE_DATE}`,
     type: 'datetime',
-    minLength: MIN_VALUE_LENGTH_DATE,
-    maxLength: MAX_VALUE_LENGTH_DATE,
+    default: () => 'CURRENT_TIMESTAMP',
+  })
+  @ApiProperty({
+    name: `${NAME_VALUE_FOR_UPDATE_DATE}`,
+    description: `${NAME_VALUE_FOR_UPDATE_DATE} for a product`,
+    type: 'datetime',
+    minLength: MIN_VALUE_FOR_CREATION_UPDATE_DATE,
+    maxLength: MAX_VALUE_FOR_CREATION_UPDATE_DATE,
     example: '2023-02-17T00:47:58.000Z',
   })
   updateDate: Date;
