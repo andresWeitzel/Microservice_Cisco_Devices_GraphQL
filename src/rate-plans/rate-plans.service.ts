@@ -17,6 +17,8 @@ let updateRatePlan: any;
 let msgResponse: string;
 let msgLog: string;
 
+//For check
+
 /**
  * @description Rate plants service for all crud operations
  * @param {Object} event Object type
