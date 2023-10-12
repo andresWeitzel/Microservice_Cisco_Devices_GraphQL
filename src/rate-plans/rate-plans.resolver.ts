@@ -1,19 +1,19 @@
 /* eslint-disable prettier/prettier */
 //External
-import { Query, Resolver, Args, Int, Mutation } from '@nestjs/graphql';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { Get, Patch, Post } from '@nestjs/common';
+import { Query, Resolver, Args, Int, Mutation } from "@nestjs/graphql";
+import { ApiOperation, ApiTags } from "@nestjs/swagger";
+import { Get, Patch, Post } from "@nestjs/common";
 //Service
-import { RatePlansService } from './rate-plans.service';
+import { RatePlansService } from "./rate-plans.service";
 //Models
-import { RatePlans } from './models/rate-plans.entity';
-import { RatePlansDTO } from './models/rate-plans.dto';
+import { RatePlans } from "./models/rate-plans.entity";
+import { RatePlansDTO } from "./models/rate-plans.dto";
 //const-vars
-let msgResponse:string;
-let msgLog:string;
+let msgResponse: string;
+let msgLog: string;
 
 @Resolver()
-@ApiTags('RatePlansResolver')
+@ApiTags("RatePlansResolver")
 export class RatePlansResolver {
   constructor(private ratePlansService: RatePlansService) {}
 
@@ -22,16 +22,21 @@ export class RatePlansResolver {
    * @param {RatePlansDTO} ratePlanObj RatePlansDTO type
    * @returns a response with the rate plan object and status code
    */
-  @Mutation(() => RatePlans, { name: 'createRatePlan' })
-  @Post('/')
-  @ApiOperation({ summary: 'Add a rate plans' })
+  @Mutation(() => RatePlans, { name: "createRatePlan" })
+  @Post("/")
+  @ApiOperation({ summary: "Add a rate plans" })
   async createRatePlan(
-    @Args({ name: 'ratePlanObj' }) ratePlanObj: RatePlansDTO,
-  ): Promise<RatePlans> {
+    @Args({ name: "ratePlanObj" }) ratePlanObj: RatePlansDTO
+  ): Promise<RatePlans | string> {
     try {
+      msgResponse = null;
+      msgLog = null;
+
+      // --- start with database operations ---
       return await this.ratePlansService.createRatePlan(ratePlanObj);
+      // --- end with database operations ---
     } catch (error) {
-      msgResponse = 'ERROR in createRatePlan function controller';
+      msgResponse = "ERROR in createRatePlan function resolver";
       msgLog = msgResponse + `Caused by ${error}`;
       console.log(msgLog);
       return msgResponse;
@@ -44,17 +49,25 @@ export class RatePlansResolver {
    * @param {RatePlansDTO} ratePlanObj RatePlansDTO type
    * @returns a response with the rate plan object and status code
    */
-  @Mutation(() => RatePlans, { name: 'updateRatePlan' })
-  @Patch('/:id')
-  @ApiOperation({ summary: 'Update a rate plans' })
+  @Mutation(() => RatePlans, { name: "updateRatePlan" })
+  @Patch("/:id")
+  @ApiOperation({ summary: "Update a rate plans" })
   async updateRatePlan(
-    @Args({ name: 'id' }) id: number,
-    @Args({ name: 'ratePlanObj' }) ratePlanObj: RatePlansDTO,
-  ): Promise<RatePlans> {
+    @Args({ name: "id" }) id: number,
+    @Args({ name: "ratePlanObj" }) ratePlanObj: RatePlansDTO
+  ): Promise<RatePlans | string> {
     try {
+      msgResponse = null;
+      msgLog = null;
+
+      //--- start with database operations ----
       return await this.ratePlansService.updateRatePlan(id, ratePlanObj);
+      //--- end with database operations ----
     } catch (error) {
-      console.log(`Error in updateRatePlan controller. Caused by ${error}`);
+      msgResponse = "ERROR in updateRatePlan function resolver";
+      msgLog = msgResponse + `Caused by ${error}`;
+      console.log(msgLog);
+      return msgResponse;
     }
   }
 
@@ -66,24 +79,32 @@ export class RatePlansResolver {
    * @param {string} orderAt string type
    * @returns a response with the rate plans paginated list and status code
    */
-  @Get('/list')
-  @ApiOperation({ summary: 'Get all paginated rate plans' })
-  @Query(() => [RatePlans], { name: 'getAllRatePlans' })
+  @Get("/list")
+  @ApiOperation({ summary: "Get all paginated rate plans" })
+  @Query(() => [RatePlans], { name: "getAllRatePlans" })
   async getAllRatePlans(
-    @Args({ name: 'pageNro', type: () => Int }) pageNro: number,
-    @Args({ name: 'pageSize', type: () => Int }) pageSize: number,
-    @Args({ name: 'orderBy' }) orderBy: string,
-    @Args({ name: 'orderAt' }) orderAt: string,
-  ): Promise<RatePlans[]> {
+    @Args({ name: "pageNro", type: () => Int }) pageNro: number,
+    @Args({ name: "pageSize", type: () => Int }) pageSize: number,
+    @Args({ name: "orderBy" }) orderBy: string,
+    @Args({ name: "orderAt" }) orderAt: string
+  ): Promise<RatePlans[] | string> {
     try {
+      msgResponse = null;
+      msgLog = null;
+
+      //--- start with database operations ----
       return await this.ratePlansService.getAllRatePlans(
         pageNro,
         pageSize,
         orderBy,
-        orderAt,
+        orderAt
       );
+      //--- end with database operations ----
     } catch (error) {
-      console.log(`Error in getAllRatePlans controller. Caused by ${error}`);
+      msgResponse = "ERROR in getAllRatePlans function resolver";
+      msgLog = msgResponse + `Caused by ${error}`;
+      console.log(msgLog);
+      return msgResponse;
     }
   }
 
@@ -93,16 +114,24 @@ export class RatePlansResolver {
       * @param {number} inputId number type
    * @returns a response with the rate plan and status code
    */
-  @Get('/id/:inputId')
-  @ApiOperation({ summary: 'Get a rate plan according to your id' })
-  @Query(() => RatePlans, { name: 'getByIdRatePlans' })
+  @Get("/id/:inputId")
+  @ApiOperation({ summary: "Get a rate plan according to your id" })
+  @Query(() => RatePlans, { name: "getByIdRatePlans" })
   async getByIdRatePlans(
-    @Args({ name: 'inputId', type: () => Int }) inputId: number,
-  ): Promise<RatePlans> {
+    @Args({ name: "inputId", type: () => Int }) inputId: number
+  ): Promise<RatePlans | string> {
     try {
+      msgResponse = null;
+      msgLog = null;
+
+      //--- start with database operations ----
       return await this.ratePlansService.getByIdRatePlans(inputId);
+      //--- end with database operations ----
     } catch (error) {
-      console.log(`Error in getByIdRatePlans controller. Caused by ${error}`);
+      msgResponse = "ERROR in getByIdRatePlans function resolver";
+      msgLog = msgResponse + `Caused by ${error}`;
+      console.log(msgLog);
+      return msgResponse;
     }
   }
 }
