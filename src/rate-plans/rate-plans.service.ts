@@ -1,13 +1,14 @@
 /* eslint-disable prettier/prettier */
 //External
-import { Injectable, Inject } from "@nestjs/common";
-import { Repository } from "typeorm";
+import { Injectable, Inject } from '@nestjs/common';
+import { Repository } from 'typeorm';
 //Models
-import { RatePlans } from "./models/rate-plans.entity";
-import { RatePlansDTO } from "./models/rate-plans.dto";
+import { RatePlans } from './models/rate-plans.entity';
+import { RatePlansDTO } from './models/rate-plans.dto';
 //Enums
 //Helpers
-import { validateObject } from "./helpers/models/validateObject";
+import { validateObject } from './helpers/models/validateObject';
+import { checkOrderBy } from './helpers/pagination/rate-plans';
 //Const-vars
 let checkObj: any;
 let ratePlansList: RatePlans[];
@@ -16,8 +17,11 @@ let newRatePlan: any;
 let updateRatePlan: any;
 let msgResponse: string;
 let msgLog: string;
-
-//For check
+//Pagination
+let pageSize: number;
+let pageNro: number;
+let orderBy: string;
+let orderAt: string;
 
 /**
  * @description Rate plants service for all crud operations
@@ -26,8 +30,8 @@ let msgLog: string;
 @Injectable()
 export class RatePlansService {
   constructor(
-    @Inject("RATE_PLANS_REPOSITORY")
-    private ratePlansRepository: Repository<RatePlans>
+    @Inject('RATE_PLANS_REPOSITORY')
+    private ratePlansRepository: Repository<RatePlans>,
   ) {}
 
   /**
@@ -50,7 +54,7 @@ export class RatePlansService {
 
       return await this.ratePlansRepository.save(newRatePlan);
     } catch (error) {
-      msgResponse = "ERROR in createRatePlan function service";
+      msgResponse = 'ERROR in createRatePlan function service';
       msgLog = msgResponse + `Caused by ${error}`;
       console.log(msgLog);
       return msgResponse;
@@ -65,7 +69,7 @@ export class RatePlansService {
    */
   async updateRatePlan(
     inputId: number,
-    ratePlan: RatePlansDTO
+    ratePlan: RatePlansDTO,
   ): Promise<RatePlans | string> {
     try {
       msgResponse = null;
@@ -86,7 +90,7 @@ export class RatePlansService {
       }
       //-- end with database operation ---
     } catch (error) {
-      msgResponse = "ERROR in updateRatePlan function service";
+      msgResponse = 'ERROR in updateRatePlan function service';
       msgLog = msgResponse + `Caused by ${error}`;
       console.log(msgLog);
       return msgResponse;
@@ -102,36 +106,58 @@ export class RatePlansService {
    * @returns an object with the products paginated list
    */
   async getAllRatePlans(
-    pageNro: number,
-    pageSize: number,
-    orderBy: string,
-    orderAt: string
+    pageNroParam: number,
+    pageSizeParam: number,
+    orderByParam: string,
+    orderAtParam: string,
   ): Promise<RatePlans[] | string> {
     try {
+      //pagination
+      pageSize = 20;
+      pageNro = 0;
+      orderBy = 'id';
+      orderAt = 'ASC';
       msgResponse = null;
       msgLog = null;
 
       //-- start with pagination  ---
-      pageNro = (pageNro == (null || undefined || NaN) ? 0 : pageNro) || 0;
-      pageSize = (pageSize == (null || undefined || NaN) ? 20 : pageSize) || 20;
-      orderBy = (orderBy == (null || undefined || "") ? "id" : orderBy) || "id";
+      pageNro =
+        pageNroParam == (null || undefined || NaN) ? pageNro : pageNroParam;
+      pageSize =
+        pageSizeParam == (null || undefined || NaN) ? pageSize : pageSizeParam;
+      orderBy =
+        orderByParam == (null || undefined || '') ? orderBy : orderByParam;
       orderAt =
-        (orderAt == (null || undefined || "") ? "ASC" : orderAt) || "ASC";
+        orderAtParam == (null || undefined || '') ? orderAt : orderAtParam;
+
+      // orderBy = await checkOrderBy(orderBy);
+
+      // if(orderBy == (null || undefined)){
+      //   return ORDER_BY_NAME_VALUE_ERROR;
+      // }
+
+      // orderAt = await checkOrderAt(orderAt);
+
+      // if(orderAt == (undefined || null)){
+      //   return ORDER_AT_NAME_VALUE_ERROR;
+      // }
+
+      // order = [[orderBy, orderAt]];
       //-- end with pagination  ---
 
       // --- start with database operations ---
       ratePlansList = await this.ratePlansRepository.find({
         order: {
-          [orderBy]: orderAt
+          [orderBy]: orderAt,
         },
         skip: pageNro,
-        take: pageSize
+        take: pageSize,
       });
       //--- end with database operations ---
 
       return ratePlansList;
     } catch (error) {
-      msgResponse = "ERROR in getAllRatePlans function service";
+      msgResponse = 'ERROR in getAllRatePlans function service';
       msgLog = msgResponse + `Caused by ${error}`;
       console.log(msgLog);
       return msgResponse;
@@ -153,14 +179,14 @@ export class RatePlansService {
 
       ratePlanObj = await this.ratePlansRepository.findOne({
         where: {
-          id: inputId
-        }
+          id: inputId,
+        },
       });
       //--- end with database operations ---
 
       return ratePlanObj;
     } catch (error) {
-      msgResponse = "ERROR in getByIdRatePlans function service";
+      msgResponse = 'ERROR in getByIdRatePlans function service';
       msgLog = msgResponse + `Caused by ${error}`;
       console.log(msgLog);
       return msgResponse;
