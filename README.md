@@ -1,4 +1,4 @@
-![Index app](./doc/graphql.png)
+![Index app](https://github.com/andresWeitzel/Microservice_Cisco_Devices_GraphQL/blob/master/doc/assets/img/readme/graphql_microservice.jpg)
 
 # Microservicio\_Cisco\_Devices\_GraphQL
 
