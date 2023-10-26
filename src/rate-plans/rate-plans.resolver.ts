@@ -12,6 +12,8 @@ import { RatePlansDTO } from './models/rate-plans.dto';
 let msgResponse: string;
 let msgLog: string;
 
+//Check
+
 @Resolver()
 @ApiTags('RatePlansResolver')
 export class RatePlansResolver {
