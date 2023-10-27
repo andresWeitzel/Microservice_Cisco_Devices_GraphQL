@@ -12,7 +12,6 @@ import { validateObject } from "./helpers/models/validateObject";
 let checkObj: any;
 let ratePlansList: RatePlans[];
 let ratePlanObj: RatePlans;
-let newRatePlan: any;
 let updateRatePlan: any;
 let msgResponse: string;
 let msgLog: string;
@@ -27,33 +26,6 @@ export class RatePlansService {
     @Inject("RATE_PLANS_REPOSITORY")
     private ratePlansRepository: Repository<RatePlans>
   ) {}
-
-  /**
-   * @description Service to create and save a rate plan
-   * @param {RatePlansDTO} ratePlan RatePlansDTO type
-   * @returns an object with the ratePlan
-   */
-  async createRatePlan(ratePlan: RatePlansDTO): Promise<RatePlans | string> {
-    try {
-      msgResponse = null;
-      msgLog = null;
-
-      //-- start with validation object  ---
-      checkObj = await validateObject(ratePlan);
-      if (checkObj.length) {
-        return checkObj;
-      }
-      //-- end with validation object  ---
-      newRatePlan = this.ratePlansRepository.create(ratePlan);
-
-      return await this.ratePlansRepository.save(newRatePlan);
-    } catch (error) {
-      msgResponse = "ERROR in createRatePlan function service";
-      msgLog = msgResponse + `Caused by ${error}`;
-      console.log(msgLog);
-      return msgResponse;
-    }
-  }
 
   /**
    * @description Service to update and save a rate plan

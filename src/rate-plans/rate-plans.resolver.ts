@@ -2,12 +2,12 @@
 //External
 import { Query, Resolver, Args, Int, Mutation } from "@nestjs/graphql";
 import { ApiOperation, ApiTags } from "@nestjs/swagger";
-import { Get, Patch, Post } from "@nestjs/common";
-//Service
-import { RatePlansService } from "./rate-plans.service";
+import { Get, Patch } from "@nestjs/common";
 //Models
 import { RatePlans } from "./models/rate-plans.entity";
 import { RatePlansDTO } from "./models/rate-plans.dto";
+//Service
+import { RatePlansService } from "./rate-plans.service";
 //const-vars
 let msgResponse: string;
 let msgLog: string;
@@ -18,32 +18,6 @@ let msgLog: string;
 @ApiTags("RatePlansResolver")
 export class RatePlansResolver {
   constructor(private ratePlansService: RatePlansService) {}
-
-  /**
-   * @description Controller to add a rate plan
-   * @param {RatePlansDTO} ratePlanObj RatePlansDTO type
-   * @returns a response with the rate plan object and status code
-   */
-  @Mutation(() => RatePlans, { name: "createRatePlan" })
-  @Post("/")
-  @ApiOperation({ summary: "Add a rate plans" })
-  async createRatePlan(
-    @Args({ name: "ratePlanObj" }) ratePlanObj: RatePlansDTO
-  ): Promise<RatePlans | string> {
-    try {
-      msgResponse = null;
-      msgLog = null;
-
-      // --- start with database operations ---
-      return await this.ratePlansService.createRatePlan(ratePlanObj);
-      // --- end with database operations ---
-    } catch (error) {
-      msgResponse = "ERROR in createRatePlan function resolver";
-      msgLog = msgResponse + `Caused by ${error}`;
-      console.log(msgLog);
-      return msgResponse;
-    }
-  }
 
   /**
    * @description Controller to update a rate plan
