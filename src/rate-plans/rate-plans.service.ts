@@ -6,10 +6,16 @@ import { Repository } from 'typeorm';
 import { RatePlans } from './models/rate-plans.entity';
 import { RatePlansDTO } from './models/rate-plans.dto';
 //Enums
+import { paginationNameValueError } from './enums/pagination/errors';
 //Helpers
 import { validateObject } from './helpers/models/validateObject';
-import { checkOrderBy } from './helpers/pagination/rate-plans';
-//Const-vars
+import { checkOrderAt, checkOrderBy } from './helpers/pagination/rate-plans';
+//const
+const ORDER_BY_NAME_VALUE_ERROR =
+  paginationNameValueError.ORDER_BY_NAME_VALUE_ERROR;
+const ORDER_AT_NAME_VALUE_ERROR =
+  paginationNameValueError.ORDER_AT_NAME_VALUE_ERROR;
+//vars
 let checkObj: any;
 let ratePlansList: RatePlans[];
 let ratePlanObj: RatePlans;
@@ -22,7 +28,6 @@ let pageSize: number;
 let pageNro: number;
 let orderBy: string;
 let orderAt: string;
-
 /**
  * @description Rate plants service for all crud operations
  * @param {Object} event Object type
@@ -99,10 +104,10 @@ export class RatePlansService {
 
   /**
    * @description Service to get a paginated listing of all rate plans
-   * @param {number} pageNro number type
-   * @param {number} pageSize number type
-   * @param {string} orderBy string type
-   * @param {string} orderAt string type
+   * @param {number} pageNroParam number type
+   * @param {number} pageSizeParam number type
+   * @param {string} orderByParam string type
+   * @param {string} orderAtParam string type
    * @returns an object with the products paginated list
    */
   async getAllRatePlans(
@@ -121,28 +126,24 @@ export class RatePlansService {
       msgLog = null;
 
       //-- start with pagination  ---
-      pageNro =
-        pageNroParam == (null || undefined || NaN) ? pageNro : pageNroParam;
+      pageNro = pageNroParam != (null && undefined) ? pageNroParam : pageNro;
       pageSize =
-        pageSizeParam == (null || undefined || NaN) ? pageSize : pageSizeParam;
-      orderBy =
-        orderByParam == (null || undefined || '') ? orderBy : orderByParam;
-      orderAt =
-        orderAtParam == (null || undefined || '') ? orderAt : orderAtParam;
+        pageSizeParam != (null && undefined) ? pageSizeParam : pageSize;
+      orderBy = orderByParam != (null && undefined) ? orderByParam : orderBy;
+      orderAt = orderAtParam != (null && undefined) ? orderAtParam : orderAt;
 
-      // orderBy = await checkOrderBy(orderBy);
+      orderBy = await checkOrderBy(orderBy);
 
-      // if(orderBy == (null || undefined)){
-      //   return ORDER_BY_NAME_VALUE_ERROR;
-      // }
+      if (orderBy == (null || undefined)) {
+        return ORDER_BY_NAME_VALUE_ERROR;
+      }
 
-      // orderAt = await checkOrderAt(orderAt);
+      orderAt = await checkOrderAt(orderAt);
 
-      // if(orderAt == (undefined || null)){
-      //   return ORDER_AT_NAME_VALUE_ERROR;
-      // }
+      if (orderAt == (undefined || null)) {
+        return ORDER_AT_NAME_VALUE_ERROR;
+      }
 
-      // order = [[orderBy, orderAt]];
       //-- end with pagination  ---
 
       // --- start with database operations ---

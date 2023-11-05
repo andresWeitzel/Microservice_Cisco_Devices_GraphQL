@@ -58,6 +58,7 @@ export const checkOrderBy = async (orderBy: string) => {
       default:
         orderBy = null;
     }
+    console.log(orderBy);
     return orderBy;
   } catch (error) {
     msgResponse = 'ERROR in checkOrderBy() helper function.';
