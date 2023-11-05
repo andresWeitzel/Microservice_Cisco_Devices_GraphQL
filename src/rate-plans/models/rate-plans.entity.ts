@@ -16,50 +16,94 @@ import { RatePlansProperties } from '../enums/class-properties';
 //Const-vars
 //Decimal config
 const DECIMAL_SCALE_VALUE = Number(RatePlansProperties.DECIMAL_SCALE_VALUE);
-const DECIMAL_PRECISION_VALUE = Number(RatePlansProperties.DECIMAL_PRECISION_VALUE);
+const DECIMAL_PRECISION_VALUE = Number(
+  RatePlansProperties.DECIMAL_PRECISION_VALUE,
+);
 //id Field
 const NAME_VALUE_FOR_ID = RatePlansProperties.NAME_VALUE_FOR_ID;
-const MIN_LENGTH_VALUE_FOR_ID = Number(RatePlansProperties.MIN_LENGTH_VALUE_FOR_ID);
-const MAX_LENGTH_VALUE_FOR_ID = Number(RatePlansProperties.MAX_LENGTH_VALUE_FOR_ID);
+const MIN_LENGTH_VALUE_FOR_ID = Number(
+  RatePlansProperties.MIN_LENGTH_VALUE_FOR_ID,
+);
+const MAX_LENGTH_VALUE_FOR_ID = Number(
+  RatePlansProperties.MAX_LENGTH_VALUE_FOR_ID,
+);
 //name Field
 const NAME_VALUE_FOR_NAME = RatePlansProperties.NAME_VALUE_FOR_NAME;
-const MIN_LENGTH_VALUE_FOR_NAME = Number(RatePlansProperties.MIN_LENGTH_VALUE_FOR_NAME);
-const MAX_LENGTH_VALUE_FOR_NAME = Number(RatePlansProperties.MAX_LENGTH_VALUE_FOR_NAME);
+const MIN_LENGTH_VALUE_FOR_NAME = Number(
+  RatePlansProperties.MIN_LENGTH_VALUE_FOR_NAME,
+);
+const MAX_LENGTH_VALUE_FOR_NAME = Number(
+  RatePlansProperties.MAX_LENGTH_VALUE_FOR_NAME,
+);
 //description field
-const NAME_VALUE_FOR_DESCRIPTION = RatePlansProperties.NAME_VALUE_FOR_DESCRIPTION;
-const MIN_LENGTH_VALUE_FOR_DESCRIPTION = Number(RatePlansProperties.MIN_LENGTH_VALUE_FOR_DESCRIPTION);
-const MAX_LENGTH_VALUE_FOR_DESCRIPTION = Number(RatePlansProperties.MAX_LENGTH_VALUE_FOR_DESCRIPTION);
+const NAME_VALUE_FOR_DESCRIPTION =
+  RatePlansProperties.NAME_VALUE_FOR_DESCRIPTION;
+const MIN_LENGTH_VALUE_FOR_DESCRIPTION = Number(
+  RatePlansProperties.MIN_LENGTH_VALUE_FOR_DESCRIPTION,
+);
+const MAX_LENGTH_VALUE_FOR_DESCRIPTION = Number(
+  RatePlansProperties.MAX_LENGTH_VALUE_FOR_DESCRIPTION,
+);
 //version_id field
 const NAME_VALUE_FOR_VERSION_ID = RatePlansProperties.NAME_VALUE_FOR_VERSION_ID;
-const MIN_VALUE_FOR_VERSION_ID = Number(RatePlansProperties.MIN_VALUE_FOR_VERSION_ID);
-const MAX_VALUE_FOR_VERSION_ID = Number(RatePlansProperties.MAX_VALUE_FOR_VERSION_ID);
+const MIN_VALUE_FOR_VERSION_ID = Number(
+  RatePlansProperties.MIN_VALUE_FOR_VERSION_ID,
+);
+const MAX_VALUE_FOR_VERSION_ID = Number(
+  RatePlansProperties.MAX_VALUE_FOR_VERSION_ID,
+);
 //version_plan field
-const NAME_VALUE_FOR_VERSION_PLAN = RatePlansProperties.NAME_VALUE_FOR_VERSION_PLAN;
-const MIN_LENGTH_VALUE_FOR_VERSION_PLAN = Number(RatePlansProperties.MIN_LENGTH_VALUE_FOR_VERSION_PLAN);
-const MAX_LENGTH_VALUE_FOR_VERSION_PLAN = Number(RatePlansProperties.MAX_LENGTH_VALUE_FOR_VERSION_PLAN);
+const NAME_VALUE_FOR_VERSION_PLAN =
+  RatePlansProperties.NAME_VALUE_FOR_VERSION_PLAN;
+const MIN_LENGTH_VALUE_FOR_VERSION_PLAN = Number(
+  RatePlansProperties.MIN_LENGTH_VALUE_FOR_VERSION_PLAN,
+);
+const MAX_LENGTH_VALUE_FOR_VERSION_PLAN = Number(
+  RatePlansProperties.MAX_LENGTH_VALUE_FOR_VERSION_PLAN,
+);
 //status field
 const NAME_VALUE_FOR_STATUS = RatePlansProperties.NAME_VALUE_FOR_STATUS;
 //type_plan field
 const NAME_VALUE_FOR_TYPE_PLAN = RatePlansProperties.NAME_VALUE_FOR_TYPE_PLAN;
-const MIN_LENGTH_VALUE_FOR_TYPE_PLAN = Number(RatePlansProperties.MIN_LENGTH_VALUE_FOR_TYPE_PLAN);
-const MAX_LENGTH_VALUE_FOR_TYPE_PLAN = Number(RatePlansProperties.MAX_LENGTH_VALUE_FOR_TYPE_PLAN);
+const MIN_LENGTH_VALUE_FOR_TYPE_PLAN = Number(
+  RatePlansProperties.MIN_LENGTH_VALUE_FOR_TYPE_PLAN,
+);
+const MAX_LENGTH_VALUE_FOR_TYPE_PLAN = Number(
+  RatePlansProperties.MAX_LENGTH_VALUE_FOR_TYPE_PLAN,
+);
 //sucription_charge field
-const NAME_VALUE_FOR_SUSCRIPTION_CHARGE = RatePlansProperties.NAME_VALUE_FOR_SUSCRIPTION_CHARGE;
-const DEFAULT_VALUE_FOR_SUSCRIPTION_CHARGE = RatePlansProperties.DEFAULT_VALUE_FOR_SUSCRIPTION_CHARGE;
-const MIN_VALUE_FOR_SUSCRIPTION_CHARGE = Number(RatePlansProperties.MIN_VALUE_FOR_SUSCRIPTION_CHARGE);
-const MAX_VALUE_FOR_SUSCRIPTION_CHARGE = Number(RatePlansProperties.MAX_VALUE_FOR_SUSCRIPTION_CHARGE);
+const NAME_VALUE_FOR_SUSCRIPTION_CHARGE =
+  RatePlansProperties.NAME_VALUE_FOR_SUSCRIPTION_CHARGE;
+const DEFAULT_VALUE_FOR_SUSCRIPTION_CHARGE =
+  RatePlansProperties.DEFAULT_VALUE_FOR_SUSCRIPTION_CHARGE;
+const MIN_VALUE_FOR_SUSCRIPTION_CHARGE = Number(
+  RatePlansProperties.MIN_VALUE_FOR_SUSCRIPTION_CHARGE,
+);
+const MAX_VALUE_FOR_SUSCRIPTION_CHARGE = Number(
+  RatePlansProperties.MAX_VALUE_FOR_SUSCRIPTION_CHARGE,
+);
 //number_of_tiers_field
-const NAME_VALUE_FOR_NUMBER_OF_TIERS = RatePlansProperties.NAME_VALUE_FOR_NUMBER_OF_TIERS;
-const MIN_VALUE_FOR_NUMBER_OF_TIERS = Number(RatePlansProperties.MIN_VALUE_FOR_NUMBER_OF_TIERS);
-const MAX_VALUE_FOR_NUMBER_OF_TIERS = Number(RatePlansProperties.MAX_VALUE_FOR_NUMBER_OF_TIERS);
+const NAME_VALUE_FOR_NUMBER_OF_TIERS =
+  RatePlansProperties.NAME_VALUE_FOR_NUMBER_OF_TIERS;
+const MIN_VALUE_FOR_NUMBER_OF_TIERS = Number(
+  RatePlansProperties.MIN_VALUE_FOR_NUMBER_OF_TIERS,
+);
+const MAX_VALUE_FOR_NUMBER_OF_TIERS = Number(
+  RatePlansProperties.MAX_VALUE_FOR_NUMBER_OF_TIERS,
+);
 //creation_date field
-const NAME_VALUE_FOR_CREATION_DATE = RatePlansProperties.NAME_VALUE_FOR_CREATION_DATE;
+const NAME_VALUE_FOR_CREATION_DATE =
+  RatePlansProperties.NAME_VALUE_FOR_CREATION_DATE;
 //update_date field
-const NAME_VALUE_FOR_UPDATE_DATE = RatePlansProperties.NAME_VALUE_FOR_UPDATE_DATE;
+const NAME_VALUE_FOR_UPDATE_DATE =
+  RatePlansProperties.NAME_VALUE_FOR_UPDATE_DATE;
 //For dates
-const MIN_VALUE_FOR_CREATION_UPDATE_DATE = Number(RatePlansProperties.MIN_VALUE_FOR_CREATION_UPDATE_DATE);
-const MAX_VALUE_FOR_CREATION_UPDATE_DATE = Number(RatePlansProperties.MAX_VALUE_FOR_CREATION_UPDATE_DATE);
-
+const MIN_VALUE_FOR_CREATION_UPDATE_DATE = Number(
+  RatePlansProperties.MIN_VALUE_FOR_CREATION_UPDATE_DATE,
+);
+const MAX_VALUE_FOR_CREATION_UPDATE_DATE = Number(
+  RatePlansProperties.MAX_VALUE_FOR_CREATION_UPDATE_DATE,
+);
 
 @ObjectType('RatePlans')
 @Entity({ name: 'rate_plans' })
@@ -92,8 +136,7 @@ export class RatePlans extends BaseEntity {
   })
   @ApiProperty({
     name: `${NAME_VALUE_FOR_NAME}`,
-    description:
-      `Descriptive rate plan ${NAME_VALUE_FOR_NAME}. Names are unique within an operator.`,
+    description: `Descriptive rate plan ${NAME_VALUE_FOR_NAME}. Names are unique within an operator.`,
     type: 'string',
     minLength: MIN_LENGTH_VALUE_FOR_NAME,
     maxLength: MAX_LENGTH_VALUE_FOR_NAME,
@@ -150,8 +193,7 @@ export class RatePlans extends BaseEntity {
   })
   @ApiProperty({
     name: `${NAME_VALUE_FOR_VERSION_PLAN}`,
-    description:
-    `Specifies the ${NAME_VALUE_FOR_VERSION_PLAN} of the current rate plan. Two different versions of the same rate plan may coexist if there are billable devices assigned to each version (for prepaid plans only)`,
+    description: `Specifies the ${NAME_VALUE_FOR_VERSION_PLAN} of the current rate plan. Two different versions of the same rate plan may coexist if there are billable devices assigned to each version (for prepaid plans only)`,
     type: 'string',
     minLength: MIN_LENGTH_VALUE_FOR_VERSION_PLAN,
     maxLength: MAX_LENGTH_VALUE_FOR_VERSION_PLAN,
@@ -172,7 +214,7 @@ export class RatePlans extends BaseEntity {
   })
   @ApiProperty({
     name: `${NAME_VALUE_FOR_STATUS}`,
-    description:`${NAME_VALUE_FOR_STATUS} for a product`,
+    description: `${NAME_VALUE_FOR_STATUS} for a product`,
     type: 'enum',
     example: 'ACTIVE (only enum: ACTIVE, INACTIVE or PUBLISHED)',
   })
@@ -231,8 +273,7 @@ export class RatePlans extends BaseEntity {
   })
   @ApiProperty({
     name: `${NAME_VALUE_FOR_NUMBER_OF_TIERS}`,
-    description:
-      `The ${NAME_VALUE_FOR_NUMBER_OF_TIERS} specifies how many subscription tiers the rate plan has. Each tier can have different subscription fees, account charges (for certain plan types), usage allotments, and overage charges.`,
+    description: `The ${NAME_VALUE_FOR_NUMBER_OF_TIERS} specifies how many subscription tiers the rate plan has. Each tier can have different subscription fees, account charges (for certain plan types), usage allotments, and overage charges.`,
     type: 'int',
     example: MIN_VALUE_FOR_NUMBER_OF_TIERS,
   })
