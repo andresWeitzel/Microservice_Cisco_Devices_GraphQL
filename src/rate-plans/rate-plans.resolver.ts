@@ -19,59 +19,33 @@ let msgLog: string;
 export class RatePlansResolver {
   constructor(private ratePlansService: RatePlansService) {}
 
-  /**
-   * @description Controller to add a rate plan
-   * @param {RatePlansDTO} ratePlanObj RatePlansDTO type
-   * @returns a response with the rate plan object and status code
-   */
-  @Mutation(() => RatePlans, { name: 'createRatePlan' })
-  @Post('/')
-  @ApiOperation({ summary: 'Add a rate plans' })
-  async createRatePlan(
-    @Args({ name: 'ratePlanObj' }) ratePlanObj: RatePlansDTO,
-  ): Promise<RatePlans | string> {
-    try {
-      msgResponse = null;
-      msgLog = null;
+  // /**
+  //  * @description Controller to update a rate plan
+  //  * @param {number} id number type
+  //  * @param {RatePlansDTO} ratePlanObj RatePlansDTO type
+  //  * @returns a response with the rate plan object and status code
+  //  */
+  // @Mutation(() => RatePlans, { name: 'updateRatePlan' })
+  // @Patch('/:id')
+  // @ApiOperation({ summary: 'Update a rate plans' })
+  // async updateRatePlan(
+  //   @Args({ name: 'id' }) id: number,
+  //   @Args({ name: 'ratePlanObj' }) ratePlanObj: RatePlansDTO,
+  // ): Promise<RatePlans | string> {
+  //   try {
+  //     msgResponse = null;
+  //     msgLog = null;
 
-      // --- start with database operations ---
-      return await this.ratePlansService.createRatePlan(ratePlanObj);
-      // --- end with database operations ---
-    } catch (error) {
-      msgResponse = 'ERROR in createRatePlan function resolver';
-      msgLog = msgResponse + `Caused by ${error}`;
-      console.log(msgLog);
-      return msgResponse;
-    }
-  }
-
-  /**
-   * @description Controller to update a rate plan
-   * @param {number} id number type
-   * @param {RatePlansDTO} ratePlanObj RatePlansDTO type
-   * @returns a response with the rate plan object and status code
-   */
-  @Mutation(() => RatePlans, { name: 'updateRatePlan' })
-  @Patch('/:id')
-  @ApiOperation({ summary: 'Update a rate plans' })
-  async updateRatePlan(
-    @Args({ name: 'id' }) id: number,
-    @Args({ name: 'ratePlanObj' }) ratePlanObj: RatePlansDTO,
-  ): Promise<RatePlans | string> {
-    try {
-      msgResponse = null;
-      msgLog = null;
-
-      //--- start with database operations ----
-      return await this.ratePlansService.updateRatePlan(id, ratePlanObj);
-      //--- end with database operations ----
-    } catch (error) {
-      msgResponse = 'ERROR in updateRatePlan function resolver';
-      msgLog = msgResponse + `Caused by ${error}`;
-      console.log(msgLog);
-      return msgResponse;
-    }
-  }
+  //     //--- start with database operations ----
+  //     return await this.ratePlansService.updateRatePlan(id, ratePlanObj);
+  //     //--- end with database operations ----
+  //   } catch (error) {
+  //     msgResponse = 'ERROR in updateRatePlan function resolver';
+  //     msgLog = msgResponse + `Caused by ${error}`;
+  //     console.log(msgLog);
+  //     return msgResponse;
+  //   }
+  // }
 
   /**
    * @description Controller to get a paginated listing of all rate plans

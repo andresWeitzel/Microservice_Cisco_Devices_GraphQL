@@ -39,68 +39,41 @@ export class RatePlansService {
     private ratePlansRepository: Repository<RatePlans>,
   ) {}
 
-  /**
-   * @description Service to create and save a rate plan
-   * @param {RatePlansDTO} ratePlan RatePlansDTO type
-   * @returns an object with the ratePlan
-   */
-  async createRatePlan(ratePlan: RatePlansDTO): Promise<RatePlans | string> {
-    try {
-      msgResponse = null;
-      msgLog = null;
+  // /**
+  //  * @description Service to update and save a rate plan
+  //  * @param {number} inputId number type
+  //  * @param {RatePlansDTO} ratePlan RatePlansDTO type
+  //  * @returns an object with the ratePlan
+  //  */
+  // async updateRatePlan(
+  //   inputId: number,
+  //   ratePlan: RatePlansDTO,
+  // ): Promise<RatePlans | string> {
+  //   try {
+  //     msgResponse = null;
+  //     msgLog = null;
 
-      //-- start with validation object  ---
-      checkObj = await validateObject(ratePlan);
-      if (checkObj.length) {
-        return checkObj;
-      }
-      //-- end with validation object  ---
-      newRatePlan = this.ratePlansRepository.create(ratePlan);
+  //     //-- start with validation object  ---
+  //     checkObj = await validateObject(ratePlan);
+  //     if (checkObj.length) {
+  //       return checkObj;
+  //     }
+  //     //-- end with validation object  ---
 
-      return await this.ratePlansRepository.save(newRatePlan);
-    } catch (error) {
-      msgResponse = 'ERROR in createRatePlan function service';
-      msgLog = msgResponse + `Caused by ${error}`;
-      console.log(msgLog);
-      return msgResponse;
-    }
-  }
+  //     //-- start with database operation ---
+  //     updateRatePlan = await this.ratePlansRepository.update(inputId, ratePlan);
 
-  /**
-   * @description Service to update and save a rate plan
-   * @param {number} inputId number type
-   * @param {RatePlansDTO} ratePlan RatePlansDTO type
-   * @returns an object with the ratePlan
-   */
-  async updateRatePlan(
-    inputId: number,
-    ratePlan: RatePlansDTO,
-  ): Promise<RatePlans | string> {
-    try {
-      msgResponse = null;
-      msgLog = null;
-
-      //-- start with validation object  ---
-      checkObj = await validateObject(ratePlan);
-      if (checkObj.length) {
-        return checkObj;
-      }
-      //-- end with validation object  ---
-
-      //-- start with database operation ---
-      updateRatePlan = await this.ratePlansRepository.update(inputId, ratePlan);
-
-      if (updateRatePlan != (null || undefined)) {
-        return await this.getByIdRatePlans(inputId);
-      }
-      //-- end with database operation ---
-    } catch (error) {
-      msgResponse = 'ERROR in updateRatePlan function service';
-      msgLog = msgResponse + `Caused by ${error}`;
-      console.log(msgLog);
-      return msgResponse;
-    }
-  }
+  //     if (updateRatePlan != (null || undefined)) {
+  //       return await this.getByIdRatePlans(inputId);
+  //     }
+  //     //-- end with database operation ---
+  //   } catch (error) {
+  //     msgResponse = 'ERROR in updateRatePlan function service';
+  //     msgLog = msgResponse + `Caused by ${error}`;
+  //     console.log(msgLog);
+  //     return msgResponse;
+  //   }
+  // }
 
   /**
    * @description Service to get a paginated listing of all rate plans
