@@ -12,6 +12,8 @@ import { CreateRatePlansService } from "./services/create.service";
 import { CreateRatePlansResolver } from "./resolvers/create.resolver";
 import { UpdateRatePlansService } from "./services/update.service";
 import { UpdateRatePlansResolver } from "./resolvers/update.resolver";
+import { GetAllRatePlansService } from "./services/get-all.service";
+import { GetAllRatePlansResolver } from "./resolvers/get-all.resolver";
 
 @Module({
   imports: [DatabaseModule],
@@ -24,6 +26,9 @@ import { UpdateRatePlansResolver } from "./resolvers/update.resolver";
     //UpdateRatePlan
     UpdateRatePlansService,
     UpdateRatePlansResolver,
+        //GetAllRatePlan
+        GetAllRatePlansService,
+        GetAllRatePlansResolver,
     //Next for refactor
     RatePlansService,
     RatePlansResolver,
