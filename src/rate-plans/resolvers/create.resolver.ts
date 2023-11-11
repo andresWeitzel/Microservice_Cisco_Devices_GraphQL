@@ -19,7 +19,7 @@ export class CreateRatePlansResolver {
   constructor(private createPlansService: CreateRatePlansService) {}
 
   /**
-   * @description function for add a rate plan to database 
+   * @description function for add a rate plan to database
    * @param {RatePlansDTO} ratePlanObj RatePlansDTO type
    * @returns a response with the rate plan object and status code
    */
@@ -37,7 +37,8 @@ export class CreateRatePlansResolver {
       return await this.createPlansService.create(ratePlanObj);
       // --- end with database operations ---
     } catch (error) {
-      msgResponse = 'ERROR in createRatePlan function for CreateRatePlansResolver class';
+      msgResponse =
+        'ERROR in createRatePlan function for CreateRatePlansResolver class';
       msgLog = msgResponse + `Caused by ${error}`;
       console.log(msgLog);
       return msgResponse;

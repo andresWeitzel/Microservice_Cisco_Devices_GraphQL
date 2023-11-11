@@ -48,11 +48,11 @@ export class GetAllRatePlansResolver {
       );
       //--- end with database operations ----
     } catch (error) {
-      msgResponse = 'ERROR in getAllRatePlans function for GetAllRatePlansResolver class';
+      msgResponse =
+        'ERROR in getAllRatePlans function for GetAllRatePlansResolver class';
       msgLog = msgResponse + `Caused by ${error}`;
       console.log(msgLog);
       return msgResponse;
     }
   }
-
 }

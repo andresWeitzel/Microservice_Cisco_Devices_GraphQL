@@ -1,0 +1,16 @@
+# get by id Rate Plan
+query {
+  getByIdRatePlans(inputId: 2) {
+    id
+    name
+    description
+    versionId
+    versionPlan
+    status
+    typePlan
+    subscriptionCharge
+    numberOfTiers
+    creationDate
+    updateDate
+  }
+}

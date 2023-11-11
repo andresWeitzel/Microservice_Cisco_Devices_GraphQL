@@ -1,0 +1,16 @@
+# Get All Rate Plans
+query {
+  getAllRatePlans(pageNro: 0, pageSize: 100, orderBy: "name", orderAt: "asc") {
+    id
+    name
+    description
+    versionId
+    versionPlan
+    status
+    typePlan
+    subscriptionCharge
+    numberOfTiers
+    creationDate
+    updateDate
+  }
+}

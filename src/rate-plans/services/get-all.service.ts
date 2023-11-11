@@ -34,7 +34,6 @@ export class GetAllRatePlansService {
     private ratePlansRepository: Repository<RatePlans>,
   ) {}
 
-
   /**
    * @description Service to get a paginated listing of all rate plans
    * @param {number} pageNroParam number type
@@ -91,10 +90,11 @@ export class GetAllRatePlansService {
 
       return ratePlansList;
     } catch (error) {
-      msgResponse = 'ERROR in get-all function for GetAllRatePlansService class';
+      msgResponse =
+        'ERROR in get-all function for GetAllRatePlansService class';
       msgLog = msgResponse + `Caused by ${error}`;
       console.log(msgLog);
       return msgResponse;
     }
   }
-  }
+}

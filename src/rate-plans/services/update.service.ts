@@ -45,9 +45,12 @@ export class UpdateRatePlansService {
       //-- end with validation object  ---
 
       //-- start with database operation ---
-      updatedRatePlan = await this.ratePlansRepository.update(inputId, ratePlan);
+      updatedRatePlan = await this.ratePlansRepository.update(
+        inputId,
+        ratePlan,
+      );
 
-           if (updatedRatePlan != (null || undefined)) {
+      if (updatedRatePlan != (null || undefined)) {
         return ratePlan;
       }
 

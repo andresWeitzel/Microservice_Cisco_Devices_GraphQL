@@ -1,13 +1,13 @@
 /* eslint-disable prettier/prettier */
 //External
-import { Injectable, Inject } from "@nestjs/common";
-import { Repository } from "typeorm";
+import { Injectable, Inject } from '@nestjs/common';
+import { Repository } from 'typeorm';
 //Models
-import { RatePlans } from "../models/rate-plans.entity";
-import { RatePlansDTO } from "../models/rate-plans.dto";
+import { RatePlans } from '../models/rate-plans.entity';
+import { RatePlansDTO } from '../models/rate-plans.dto';
 //Enums
 //Helpers
-import { validateObject } from "../helpers/models/validateObject";
+import { validateObject } from '../helpers/models/validateObject';
 //Const-vars
 let checkObj: any;
 let newRatePlan: any;
@@ -21,8 +21,8 @@ let msgLog: string;
 @Injectable()
 export class CreateRatePlansService {
   constructor(
-    @Inject("RATE_PLANS_REPOSITORY")
-    private ratePlansRepository: Repository<RatePlans>
+    @Inject('RATE_PLANS_REPOSITORY')
+    private ratePlansRepository: Repository<RatePlans>,
   ) {}
 
   /**
@@ -45,7 +45,7 @@ export class CreateRatePlansService {
 
       return await this.ratePlansRepository.save(newRatePlan);
     } catch (error) {
-      msgResponse = "ERROR in create function for CreateRatePlansService class";
+      msgResponse = 'ERROR in create function for CreateRatePlansService class';
       msgLog = msgResponse + `Caused by ${error}`;
       console.log(msgLog);
       return msgResponse;
