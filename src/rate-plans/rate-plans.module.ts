@@ -12,6 +12,8 @@ import { GetAllRatePlansService } from './services/get-all.service';
 import { GetAllRatePlansResolver } from './resolvers/get-all.resolver';
 import { GetByIdRatePlansService } from './services/get-by-id.service';
 import { GetByIdRatePlansResolver } from './resolvers/get-by-id.resolver';
+import { DeleteRatePlansService } from './services/delete.service';
+import { DeleteRatePlansResolver } from './resolvers/delete.resolver';
 
 @Module({
   imports: [DatabaseModule],
@@ -30,6 +32,9 @@ import { GetByIdRatePlansResolver } from './resolvers/get-by-id.resolver';
     //GetByIdRatePlan
     GetByIdRatePlansService,
     GetByIdRatePlansResolver,
+    //DeleteRatePlan
+    DeleteRatePlansService,
+    DeleteRatePlansResolver
   ],
 })
 export class RatePlansModule {}

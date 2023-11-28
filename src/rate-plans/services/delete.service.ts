@@ -26,16 +26,18 @@ export class DeleteRatePlansService {
    * @param {number} inputId number type
    * @returns an object with the ratePlan
    */
-  async delete(inputId: number): Promise<RatePlans | string> {
+  async delete(inputId: number): Promise<string | any> {
     try {
       msgResponse = null;
       msgLog = null;
 
-      ratePlanOld = this.ratePlansRepository.findOne(inputId);
+      ratePlanOld = this.ratePlansRepository.findOne(({
+        where: {
+          id: inputId,
+        },
+      }));
 
       deletedRatePlan = this.ratePlansRepository.remove(ratePlanOld);
-
-      //https://github.com/typeorm/typeorm/issues/7024
 
       return deletedRatePlan;
 

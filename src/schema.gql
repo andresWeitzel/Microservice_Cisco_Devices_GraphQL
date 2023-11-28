@@ -29,6 +29,7 @@ type Query {
 type Mutation {
   createRatePlan(ratePlanObj: RatePlansDTO!): RatePlans!
   updateRatePlan(id: Float!, ratePlanObj: RatePlansDTO!): RatePlans!
+  deleteRatePlan(inputId: Float!): RatePlans!
 }
 
 input RatePlansDTO {
