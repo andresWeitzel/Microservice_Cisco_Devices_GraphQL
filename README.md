@@ -102,7 +102,7 @@ Microservicio para el manejo de dispositivos cisco implementado con GraphQL, Exp
 
 </details>
 
-<br>
+
 
 ### 1.2) Configuración del proyecto desde cero [🔝](#índice-)
 
