@@ -1,6 +1,34 @@
 ![Index app](https://github.com/andresWeitzel/Microservice_Cisco_Devices_GraphQL/blob/master/doc/assets/img/readme/graphql_microservice.jpg)
 
-# Microservicio\_Cisco\_Devices\_GraphQL
+ <div align="right">
+    <img width="20" height="20" src="doc/assets/icons/backend/javascript-typescript/png/express-js.png" />
+    <img width="22" height="20" src="doc/assets/icons/backend/javascript-typescript/png/typeorm.png" />
+    <img width="18" height="20" src="doc/assets/icons/backend/javascript-typescript/png/nestjs.png" />
+    <img width="22" height="20" src="doc/assets/icons/database/png/mysql.png" />
+    <img width="20" height="20" src="doc/assets/icons/backend/javascript-typescript/png/typescript.png" />
+    <img width="20" height="20" src="doc/assets/icons/devops/png/swagger.png" />
+    <img width="20" height="20" src="doc/assets/icons/backend/javascript-typescript/png/nodejs.png" />
+</div>
+
+<br>
+
+<br>
+
+<div align="right"> 
+  <a href="./README.md">
+    <img width="65" height="40" src="./doc/assets/translation/arg-flag.jpg" />
+  </a> 
+  <a href="./README.md">
+    <img width="65" height="40" src="./doc/assets/translation/eeuu-flag.jpg" />
+  </a> 
+</div>
+
+
+<div align="center">
+
+# Microservicio Cisco Devices GraphQL
+
+</div>
 
 Microservicio para el manejo de dispositivos cisco implementado con GraphQL, Express, Apollo, NestJS, Typescript, NodeJS, TypeORM, Dotenv, Cors, Swagger, Swagger-ui, MySQL, Otros.
 
